@@ -27,3 +27,4 @@ require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
+const test = '1';
