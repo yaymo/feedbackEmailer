@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 require('./models/User');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI);
+console.log(keys.mongoURI);
 
 const app = express();
 
@@ -27,4 +28,3 @@ require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
-console.log(PORT);
