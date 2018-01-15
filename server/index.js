@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 require('./models/User');
 require('./services/passport');
 
-//mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI)
 
 const app = express();
 
