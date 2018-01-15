@@ -9,6 +9,7 @@ require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
 console.log(keys.mongoURI);
+console.log(PORT);
 
 const app = express();
 
