@@ -28,7 +28,7 @@ class Header extends Component {
                 <div className="nav-wrapper">
                     <Link to={this.props.auth ? '/surveys' : '/'}
                         className="left brand-logo" href="/">
-                        Feedback Emailer
+                        Header Component
                     </Link>
                     <ul className="right">
                         {this.renderContent()}
