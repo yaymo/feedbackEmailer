@@ -4,9 +4,7 @@ const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
     app.post('/api/stripe', requireLogin, async (req, res) => {
-        if(!req.user) {
-            return res.status(401).send({ error: 'You must login to add credits' });
-        }
+  
         const charge = await stripe.charges.create({
             amount: 500,
             currency: 'usd',
