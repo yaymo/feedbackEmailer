@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
+
+const titleStyles = {
+    marginLeft: '20px',
+}
+
+const navStyles = {
+    marginBottom: '25px'
+}
+
 class Header extends Component {
     renderContent() {
         switch(this.props.auth) {
@@ -23,13 +32,13 @@ class Header extends Component {
         }
     }
     render() {
-        //console.log(this.props);
         return (
-            <nav>
+            <nav style={navStyles}>
                 <div className="nav-wrapper">
                     <Link to={this.props.auth ? '/surveys' : '/'}
-                        className="left brand-logo" href="/">
-                        Header Component
+                        className="left brand-logo" href="/"
+                        style={titleStyles}>
+                        Survey.Me
                     </Link>
                     <ul className="right">
                         {this.renderContent()}

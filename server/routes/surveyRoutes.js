@@ -74,5 +74,16 @@ module.exports = app => {
     catch (err) {
         res.status(422).send(err);
     }
+});
+    app.delete('/api/surveys/:surveyId', async (req, res) => {
+        try {
+            await Survey
+            .findByIdAndRemove({_id: req.params.surveyId })
+            .exec();
+            res.sendStatus(200).json();
+        }
+        catch (err) {
+            res.status(400).send(err);
+        }
     });
 };

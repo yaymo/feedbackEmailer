@@ -5,14 +5,19 @@ import SurveyList from './surveys/SurveyList';
 
 class Dashboard extends Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 <SurveyList />
-                <div className="fixed-action-btn">  
+                <div className="fixed-action-btn">
+                    {this.props.auth && this.props.auth.credits ?
                         <Link to="/surveys/new" className="btn-floating btn-large red">
                             <i className="material-icons">add</i>
                         </Link>
+                        :
+                    <button className="btn-floating btn-large disabled">
+                        <i className="material-icons">add</i>
+                    </button>
+                    }
                 </div>
             </div>
         );
