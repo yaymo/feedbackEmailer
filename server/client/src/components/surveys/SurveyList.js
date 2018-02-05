@@ -25,7 +25,7 @@ class SurveyList extends Component {
                             </p>
                         </div>
                         <div className="card-action">
-                            <a>Yes: {survey.yes}</a>
+                            <a>Yes2: {survey.yes}</a>
                             <a>No: {survey.no}</a>
                             <a href="/surveys" onClick={() => this.props.deleteSurvey(survey._id)}>
                                 <i className="material-icons small grey-text right ">delete</i>
