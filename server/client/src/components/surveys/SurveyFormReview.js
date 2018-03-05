@@ -2,15 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { withRouter } from 'react-router';
+import { Button } from 'react-bootstrap';
 import formFields from './formFields';
 import * as actions from '../../actions/index';
+import '../../styles/SurveyFormReview.css';
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     const reviewFields = _.map(formFields, ({ name, label }) => {
         return (
-            <div key={name}>
-                <label>{label} </label>
-                <div>
+            <div key={name} className="review-fields">
+                <label className="form-label"> {label} </label>
+                <div className="form-value">
                     {formValues[name]}
                 </div>
             </div>
@@ -18,20 +20,19 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     })
 
     return (
-        <div>
-            <h5>Please confirm entries</h5>
+        <div className="survey-review">
+            <h5 className="header">Please confirm your entries</h5>
             {reviewFields}
-            <button 
-                className="yellow darken-3 btn-flat"
+            <Button 
+                bsStyle="warning" bsSize="large"
                 onClick={onCancel}>
                 Back
-            </button>
-            <button 
+            </Button>
+            <Button 
                 onClick={() => submitSurvey(formValues, history)}
-                className="green white-text btn-flat right">
+                bsStyle="success" bsSize="large" className="pull-right">
                 Send Survey
-                <i className="material-icons right">email</i>
-            </button>
+            </Button>
         </div>
     );
 };

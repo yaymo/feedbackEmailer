@@ -1,0 +1,11 @@
+.survey-form {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+    padding-top: 25px;
+}
+.pull-right {
+    float: right !important;
+}

@@ -5,26 +5,29 @@ import _ from 'lodash';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
+import { Grid, Button } from 'react-bootstrap';
+import '../../styles/SurveyForm.css';
 
 class SurveyForm extends Component {
     renderFields() {
         return _.map(formFields, ({ label, name }) => {
             return ( <Field component={SurveyField} type="text" 
-                        label={label} name={name} key={name} />
+                            label={label} name={name} key={name} />
             );
         });
     }
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
-                    {this.renderFields()}
-                    <Link to="/surveys" className="red btn-flat white-text">Cancel</Link>
-                    <button type="submit" className="teal btn-flat right white-text">
-                        Next
-                        <i className="material-icons right">done</i>
-                    </button>
-                </form>
+                <Grid>
+                    <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)} className="survey-form">
+                        {this.renderFields()}
+                        <Link to="/surveys" className="btn btn-lg btn-danger">Cancel</Link>
+                        <Button type="submit" bsStyle="primary" bsSize="large" className="pull-right">
+                            Next
+                        </Button>
+                    </form>
+                </Grid>
             </div>
         );
     }

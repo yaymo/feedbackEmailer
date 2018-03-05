@@ -1,46 +1,50 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
-import './styles/Header.css';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import '../styles/Header.css';
 
 
-class Header extends Component {    
-    renderLogin() {
+class Header extends Component { 
+
+    renderLoginNav() {
         switch(this.props.auth) {
             case null:
                 return;
             case false:
                 return (
-                    <li key="1"><a href="/auth/google">Login With Google</a></li>
+                    <NavItem eventKey={ 1 } href="/auth/google" id="google">Login</NavItem>
                 );
             default: 
                 return [
-                    <li key="1"><a href="/dashboard">Dashboard</a></li>,
-                    <li key="2" style={{ margin: '0 10px' }}>
-                        <a href="/credits">
-                        Credits
-                        </a>
-                    </li>,
-                    <li key="1"><a href="/api/logout">Logout</a></li>
+                    <NavItem eventKey={ 2 } key={ 2 } className="nav-item"
+                        href="/surveys">Dashboard</NavItem>,
+                    <NavItem eventKey={ 3 } key={ 3 } className="nav-item"
+                        href="/credits">Credits</NavItem>,
+                    <NavItem eventKey={ 4 } key={ 4 } className="nav-item"
+                        href="/api/logout">Logout</NavItem>
                 ];
         }
     }
     render() {
         return (
-                <nav>
-                    <div className="nav-wrapper">
-                        <ul className="left">
+                <Navbar collapseOnSelect>
+                    <Navbar.Header>
+                        <Navbar.Brand>
                             <Link to={this.props.auth ? '/surveys' : '/'}
-                                className="brand-logo nav-item" href="/">
-                                Survey.Me
+                                id="logo">
+                                Loop.io
                             </Link>
-                        </ul>
-                            <ul className="right">
-                                {this.renderLogin()}
-                            </ul>
-                    </div>
-            </nav>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Nav pullRight>
+                            {this.renderLoginNav()}
+                        </Nav>
+                    </Navbar.Collapse>
+            </Navbar>
         );
     }
 }

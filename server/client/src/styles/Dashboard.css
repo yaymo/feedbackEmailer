@@ -1,0 +1,12 @@
+.plus {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    padding: 18px 21px;
+}
+.zero {
+    background-color: #e6e6e6;
+}

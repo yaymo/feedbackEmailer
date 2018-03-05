@@ -1,0 +1,84 @@
+#logo {
+    font-size: 35px;
+    color: white;
+    text-align: left;
+    padding: 20px 0 0 15px;
+    position: relative;
+    right: 15px;
+    font-family: Roboto;
+    height: 55px;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: #3066BE;
+    height: 75px;
+    border: none;
+    border-radius: 0;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+}
+
+.nav-item {
+    font-size: 15px;
+    height: 55px;
+    border-radius: 2px 2px 0 0;
+    font-family: Roboto;
+    padding-top: 15px;
+}
+
+.navbar-nav.nav-login > li > a {
+    height: 55px;
+}
+
+.nav-login {
+    margin-left: 20px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+#google {
+    color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 25px;
+    background: transparent;
+    text-align: center;
+    width: 85px;
+    height: 50px;
+    margin-top: 13px;
+}
+
+@media (max-width: 767px) {
+    .navbar-right {
+        background-color: #3066BE;
+        width: 220px;
+        position: absolute;
+        right: 0px;
+        margin-top: 9px;
+        z-index: 10000;
+    }
+    .nav-item {
+        padding: 0;
+        font-size: 18px;
+    }
+    .nav-item:hover {
+        background-color: #6D9DC5;
+    }
+    .nav-item a {
+        height: 100%;
+    }
+    .navbar-default .navbar-collapse {
+        border-color: transparent;
+    }
+    #logo {
+        margin-left: 30px;
+        font-size: 30px;
+    }
+    .navbar-toggle {
+        margin-top: 20px;
+    }
+}

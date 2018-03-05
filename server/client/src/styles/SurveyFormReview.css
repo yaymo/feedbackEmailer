@@ -1,0 +1,25 @@
+.survey-review {
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 25px;
+    width: 80%;
+}
+
+.header {
+    text-decoration: underline;
+    font-size: 30px;
+    font-family: 'Roboto';
+    text-align: center;
+}
+.review-fields {
+    margin-bottom: 10px;
+}
+.form-value {
+    font-size: 20px;
+    font-family: 'Helvetica';
+    margin-left: 15px;
+}
+.form-label {
+    font-size: 25px;
+    font-family: 'Arial';
+}
