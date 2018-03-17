@@ -28,7 +28,7 @@ class Header extends Component {
     }
     render() {
         return (
-                <nav className="navbar navbar-expand-md navbar-dark bg-primary">
+                <nav className="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
                         <Link to={this.props.auth ? '/surveys' : '/'}
                             id="logo" className="navbar-brand">
                             Loop.io
