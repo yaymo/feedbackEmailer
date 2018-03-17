@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header';
+import Header from '../Header';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
-import Landing from './Landing';
-import Dashboard from './Dashboard';
-import SurveyNew from './surveys/SurveyNew';
-import '../styles/App.css';
+import * as actions from '../../actions';
+import Landing from '../Landing';
+import Dashboard from '../Dashboard';
+import SurveyNew from '../surveys/SurveyNew/';
+import './App.css';
 
 
 class App extends Component {

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import SurveyField from './SurveyField';
-import validateEmails from '../../utils/validateEmails';
-import formFields from './formFields';
+import SurveyField from '../SurveyField/';
+import validateEmails from '../../../utils/validateEmails';
+import formFields from '../FormFields/';
 import { Grid, Button } from 'react-bootstrap';
-import '../../styles/SurveyForm.css';
+import './SurveyForm.css';
 
 class SurveyForm extends Component {
     renderFields() {

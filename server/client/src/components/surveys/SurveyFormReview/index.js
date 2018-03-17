@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { withRouter } from 'react-router';
 import { Button } from 'react-bootstrap';
-import formFields from './formFields';
-import * as actions from '../../actions/index';
-import '../../styles/SurveyFormReview.css';
+import formFields from '../FormFields/';
+import * as actions from '../../../actions/';
+import './SurveyFormReview.css';
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     const reviewFields = _.map(formFields, ({ name, label }) => {

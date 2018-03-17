@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import '../../styles/SurveyField.css';
+import './SurveyField.css';
 
 export default ({ input, label, meta: { error, touched } }) => {
     return (
