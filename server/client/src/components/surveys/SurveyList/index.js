@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys, deleteSurvey } from '../../../actions';
-import Card from '../../Cards'
+import Card from '../../Card/'
 
 class SurveyList extends Component {
 
