@@ -24,15 +24,15 @@ class Card extends Component {
                         <ul className="nav nav-tabs card-header-tabs">
                             <li className="nav-item" key={ 1 }
                                 onClick={ () => this.setActiveTab(1) }>
-                                <a className={"nav-link " + (this.state.activeTab == 1 ? "active" : "")} href="#">Overview</a>
+                                <a className={"nav-link " + (activeTab === 1 ? "active" : "")} href="#">Overview</a>
                             </li>
                             <li className="nav-item" key={ 2 }
                                 onClick={ () => this.setActiveTab(2) }>
-                            <a className={"nav-link " + (this.state.activeTab == 2 ? "active" : "")} href="#">Data</a>
+                            <a className={"nav-link " + (activeTab === 2 ? "active" : "")} href="#">Data</a>
                             </li>
                             <li className="nav-item" key={ 3 }
                                 onClick={ () => this.setActiveTab(3) }>
-                                <a className={"nav-link " + (this.state.activeTab == 3 ? "active" : "")} href="#">Edit</a>
+                                <a className={"nav-link " + (activeTab === 3 ? "active" : "")} href="#">Edit</a>
                             </li>
                         </ul>
                     </div>
