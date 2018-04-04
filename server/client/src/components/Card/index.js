@@ -10,8 +10,8 @@ class Card extends Component {
         };
     }
 
-    setActiveTab = (key) => {
-        this.setState({ activeTab: key });
+    setActiveTab = (activeTab) => {
+        this.setState({ activeTab });
     }
 
     render() {
@@ -24,29 +24,30 @@ class Card extends Component {
                         <ul className="nav nav-tabs card-header-tabs">
                             <li className="nav-item" key={ 1 }
                                 onClick={ () => this.setActiveTab(1) }>
-                                Overview
+                                <a className={"nav-link " + (this.state.activeTab == 1 ? "active" : "")} href="#">Overview</a>
                             </li>
                             <li className="nav-item" key={ 2 }
                                 onClick={ () => this.setActiveTab(2) }>
-                                Data
+                            <a className={"nav-link " + (this.state.activeTab == 2 ? "active" : "")} href="#">Data</a>
                             </li>
                             <li className="nav-item" key={ 3 }
                                 onClick={ () => this.setActiveTab(3) }>
-                                Edit
+                                <a className={"nav-link " + (this.state.activeTab == 3 ? "active" : "")} href="#">Edit</a>
                             </li>
                         </ul>
                     </div>
+                    <div className="card-body">
+                        <h3 className="card-title">{ this.props.title }</h3>
                     { activeTab === 1 && 
-                        <div className="card-body">
-                            <h3 className="card-title">{ this.props.title }</h3>
+                        <div>
                             <h5 className="card-text">
                                 Loops
                                 <div className="survey-loops">{ this.props.body }</div>
                             </h5>
                             <p className="survey-created">
-                                Sent on: { moment(this.props.dateSent).format('l') }
+                                Sent: { moment(this.props.dateSent).format('MMMM Do, YYYY') }
                             </p>
-                        </div> 
+                        </div>
                     }
                     { activeTab === 2 && 
                     <div className="card-data">
@@ -63,6 +64,7 @@ class Card extends Component {
                             </a>
                         </div>
                     }
+                    </div>
                 </div>
             </div>
             )
