@@ -6,56 +6,54 @@ class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: 1
+            activeTab: "1"
         };
     }
 
-    setActiveTab = (activeTab) => {
-        this.setState({ activeTab });
+    tabClickHandler = ( evt ) => {
+        this.setState({ activeTab: evt.target.dataset.tab });
     }
 
     render() {
-        const activeTab = this.state.activeTab;
+        const { activeTab } = this.state;
 
         return (
-            <div className="col-sm-12 col-md-6 col-lg-6  my-3">
+            <div className="col-sm-12 col-md-12 col-lg-6  my-3">
                 <div className="card">
                     <div className="card-header">
                         <ul className="nav nav-tabs card-header-tabs">
-                            <li className="nav-item" key={ 1 }
-                                onClick={ () => this.setActiveTab(1) }>
-                                <a className={"nav-link " + (activeTab === 1 ? "active" : "")} href="#">Overview</a>
+                            <li className="nav-item" key={ 1 } >
+                                <a className={"nav-link " + (activeTab === '1' ? "active" : "")} data-tab="1"
+                                onClick={ this.tabClickHandler }> Overview </a>
                             </li>
-                            <li className="nav-item" key={ 2 }
-                                onClick={ () => this.setActiveTab(2) }>
-                            <a className={"nav-link " + (activeTab === 2 ? "active" : "")} href="#">Data</a>
+                            <li className="nav-item" key={ 2 } >
+                            <a className={"nav-link " + (activeTab === '2' ? "active" : "")} data-tab="2"
+                            onClick={ this.tabClickHandler }> Data </a>
                             </li>
-                            <li className="nav-item" key={ 3 }
-                                onClick={ () => this.setActiveTab(3) }>
-                                <a className={"nav-link " + (activeTab === 3 ? "active" : "")} href="#">Edit</a>
+                            <li className="nav-item" key={ 3 }>
+                                <a className={"nav-link " + (activeTab === '3' ? "active" : "")} data-tab="3"
+                                onClick={ this.tabClickHandler }> Edit </a>
                             </li>
                         </ul>
                     </div>
                     <div className="card-body">
                         <h3 className="card-title">{ this.props.title }</h3>
-                    { activeTab === 1 && 
-                        <div>
-                            <h5 className="card-text">
-                                Loops
-                                <div className="survey-loops">{ this.props.body }</div>
-                            </h5>
-                            <p className="survey-created">
-                                Sent: { moment(this.props.dateSent).format('MMMM Do, YYYY') }
-                            </p>
-                        </div>
+                    { activeTab === "1" && 
+                        <h5 className="card-text">
+                            Loops
+                            <div className="survey-loops">{ this.props.body }</div>
+                        </h5>    
                     }
-                    { activeTab === 2 && 
+                    { activeTab === "2" && 
                     <div className="card-data">
                         <a>Yes: { this.props.yes }</a>
                         <a>No: { this.props.no }</a>
+                        <p className="survey-created pull-right">
+                            Sent: { moment(this.props.dateSent).format('MMMM Do, YYYY') }
+                        </p>
                     </div>
                     }
-                    { activeTab === 3 &&
+                    { activeTab === "3" &&
                         <div>
                             <a href="/surveys"
                                 onClick={ this.props.onDelete }
