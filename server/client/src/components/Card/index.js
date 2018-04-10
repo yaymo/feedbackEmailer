@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import './card.css'
 
 class Card extends Component {
+
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        yes: PropTypes.number.isRequired,
+        no: PropTypes.number.isRequired,
+        dateSent: PropTypes.string.isRequired,
+        onDelete: PropTypes.func.isRequired
+    }
+
+    static defaultProps = {
+        title: '',
+        body: '',
+        yes: 0,
+        no: 0,
+        dateSent: '1/1/1970',
+        onDelete: () => {}
+    }
     constructor(props) {
         super(props);
         this.state = {
