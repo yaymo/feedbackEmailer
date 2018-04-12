@@ -19,13 +19,13 @@ class Card extends Component {
         body: '',
         yes: 0,
         no: 0,
-        dateSent: '1/1/1970',
+        dateSent: '',
         onDelete: () => {}
     }
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: "1"
+            activeTab: '1'
         };
     }
 
@@ -42,15 +42,15 @@ class Card extends Component {
                     <div className="card-header">
                         <ul className="nav nav-tabs card-header-tabs">
                             <li className="nav-item" key={ 1 } >
-                                <a className={"nav-link " + (activeTab === '1' ? "active" : "")} data-tab="1"
+                                <a className={"nav-link " + (activeTab === "1" ? "active" : "")} data-tab="1"
                                 onClick={ this.tabClickHandler }> Overview </a>
                             </li>
                             <li className="nav-item" key={ 2 } >
-                            <a className={"nav-link " + (activeTab === '2' ? "active" : "")} data-tab="2"
+                            <a className={"nav-link " + (activeTab === "2" ? "active" : "")} data-tab="2"
                             onClick={ this.tabClickHandler }> Data </a>
                             </li>
                             <li className="nav-item" key={ 3 }>
-                                <a className={"nav-link " + (activeTab === '3' ? "active" : "")} data-tab="3"
+                                <a className={"nav-link " + (activeTab === "3" ? "active" : "")} data-tab="3"
                                 onClick={ this.tabClickHandler }> Edit </a>
                             </li>
                         </ul>

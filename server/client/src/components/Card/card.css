@@ -55,3 +55,7 @@
     position: absolute;
     right: 10px;
 }
+
+.nav-link {
+    cursor: pointer;
+}

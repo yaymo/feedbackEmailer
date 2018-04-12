@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import SurveyList from '../surveys/SurveyList/';
 import './Dashboard.css';
 
 class Dashboard extends Component {
+
+    static propTypes = {
+        auth: PropTypes.shape({
+            credits: PropTypes.number
+        })
+    }
+
+    static defaultProps = {
+        auth: {
+            credits: 0
+        }
+    }
 
     render() {
         return (

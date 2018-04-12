@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import SurveyField from '../SurveyField/';
 import validateEmails from '../../../utils/validateEmails';
 import formFields from '../FormFields/';
@@ -9,6 +10,20 @@ import { Grid, Button } from 'react-bootstrap';
 import './SurveyForm.css';
 
 class SurveyForm extends Component {
+
+    static propTypes = {
+        label: PropTypes.string,
+        name: PropTypes.string,
+        handleSubmit: PropTypes.func,
+        onSurveySubmit: PropTypes.func
+    }
+
+    static defaultProps = {
+        label: '',
+        name: '',
+        handleSubmit: () => {},
+        onSurveySubmit: () => {}
+    }
     renderFields() {
         return _.map(formFields, ({ label, name }) => {
             return ( <Field component={SurveyField} type="text" 
