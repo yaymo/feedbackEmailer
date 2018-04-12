@@ -11,12 +11,20 @@ class SurveyNew extends Component {
         };
     }
 
+    handleCancel = () => {
+        this.setState({ showFormReview: false });
+    }
+
+    handleSubmit = () => {
+        this.setState({ showFormReview: true });
+    }
+
     renderContent() {
         if(this.state.showFormReview) {
-            return <SurveyFormReview onCancel={() => this.setState({ showFormReview: false  })}/>;
+            return <SurveyFormReview onCancel={ this.handleCancel }/>;
         }
         return ( 
-            <SurveyForm onSurveySubmit={() => this.setState({ showFormReview: true })}/>
+            <SurveyForm onSurveySubmit={ this.handleSubmit }/>
         );
     }
     render() {
