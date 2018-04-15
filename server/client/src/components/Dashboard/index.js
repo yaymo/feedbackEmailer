@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import SurveyList from '../surveys/SurveyList/';
 import './Dashboard.css';
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
 
     static propTypes = {
         auth: PropTypes.shape({

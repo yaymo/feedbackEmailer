@@ -6,10 +6,13 @@ import Payments from '../Payments';
 import './Header.css';
 
 
-class Header extends Component { 
+export class Header extends Component { 
 
     static propTypes = {
-        auth: PropTypes.object
+        auth: PropTypes.oneOfType([
+            PropTypes.bool,
+            PropTypes.object
+        ])
     }
 
     static defaultProps = {
