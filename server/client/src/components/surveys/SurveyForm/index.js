@@ -9,7 +9,7 @@ import formFields from '../FormFields/';
 import { Grid, Button } from 'react-bootstrap';
 import './SurveyForm.css';
 
-class SurveyForm extends Component {
+export class SurveyForm extends Component {
 
     static propTypes = {
         label: PropTypes.string,
