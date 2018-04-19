@@ -73,13 +73,10 @@ class Card extends Component {
                     </div>
                     }
                     { activeTab === "3" &&
-                        <div>
-                            <a href="/surveys"
-                                onClick={ this.props.onDelete }
-                                className="delete-survey">
-                                Delete
-                            </a>
-                        </div>
+                        <button type="button" className="btn btn-outline-danger delete-survey"
+                            onClick={ this.props.onDelete }>
+                            Delete
+                        </button>
                     }
                     </div>
                 </div>
