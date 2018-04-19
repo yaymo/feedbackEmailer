@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { fetchSurveys, deleteSurvey } from '../../../actions';
 import Card from '../../Card/'
 
-class SurveyList extends Component {
+export class SurveyList extends Component {
 
     static propTypes = {
         surveys: PropTypes.arrayOf(PropTypes.shape({

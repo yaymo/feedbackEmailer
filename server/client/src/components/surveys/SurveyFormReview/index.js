@@ -7,7 +7,7 @@ import formFields from '../FormFields/';
 import * as actions from '../../../actions/';
 import './SurveyFormReview.css';
 
-export const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
+const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     const reviewFields = _.map(formFields, ({ name, label }) => {
         return (
             <div key={name} className="review-fields">
