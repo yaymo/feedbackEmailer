@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000
+}
+
+.main {
+    position: relative;
+    top: 35%;
+    left: 45%;
+    z-index: 1001
+}
+
+.loading-header {
+    font-size: 40px;
+    font-family: 'Roboto';
+    color: white
+}

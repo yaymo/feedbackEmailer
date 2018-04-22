@@ -1,11 +1,32 @@
-import { FETCH_SURVEYS, DELETE_SURVEY_SUCCESS } from '../actions/types';
+import { REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_ERROR, FETCH_SURVEYS_SUCCESS, DELETE_SURVEY_SUCCESS } from '../actions/types';
 
-export default function(state = [], action) {
+const initialState = {
+    surveys: [],
+    isLoading: false,
+    error: null
+}
+
+export default function(state = initialState, action) {
     switch(action.type) {
-        case FETCH_SURVEYS:
-            return action.payload;
+        case REQUEST_FETCH_SURVEYS: 
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case FETCH_SURVEYS_SUCCESS:
+            return {
+                ...state,
+                surveys: action.payload,
+                isLoading: false
+            }
+        case FETCH_SURVEYS_ERROR:
+        return {
+            ...state,
+            isLoading: false,
+            error: action.error,
+            surveys: []
+        }
         case DELETE_SURVEY_SUCCESS: {
-            console.log(state);
             const newState = [...state];
             const indexToDelete = state.findIndex(survey => {
                 return survey._id === action.surveyId;

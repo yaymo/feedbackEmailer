@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchSurveys, deleteSurvey } from '../../../actions';
-import Card from '../../Card/'
+import Card from '../../Card/';
+import LoadingIndicator from '../../Loading/';
 
 export class SurveyList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: false
+        }
+    }
 
     static propTypes = {
         surveys: PropTypes.arrayOf(PropTypes.shape({
@@ -34,7 +42,7 @@ export class SurveyList extends Component {
 
     componentDidMount() {
         this.props.fetchSurveys();
-    }
+    }    
 
     renderSurveys() {
         return this.props.surveys.reverse().map(({ _id, title, body, dateSent, yes, no}) => {
@@ -42,13 +50,17 @@ export class SurveyList extends Component {
                 <Card key={_id} title={title}
                     body={body} dateSent={dateSent}
                     yes={yes} no={no}
-                    onDelete={() => this.props.deleteSurvey(_id)} />
+                    onDelete={ () => {
+                        this.props.deleteSurvey(_id) 
+                        }} />
             )
         });
     }
     render() {
+        const { isLoading } = this.props;
         return (
             <div className="container">
+                { isLoading && <LoadingIndicator /> }
                 <div className="row">
                     {this.renderSurveys()}
                 </div>
@@ -57,9 +69,10 @@ export class SurveyList extends Component {
     }
 }
 
-function mapStateToProps({ surveys }) {
+function mapStateToProps(state) {
     return {
-        surveys
+        surveys: state.surveys.surveys,
+        isLoading: state.surveys.isLoading
     }
 }
 export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(SurveyList);
