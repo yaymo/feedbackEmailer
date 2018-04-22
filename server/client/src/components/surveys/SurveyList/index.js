@@ -57,10 +57,11 @@ export class SurveyList extends Component {
         });
     }
     render() {
-        const { isLoading } = this.props;
+        const { isLoading, auth } = this.props;
         return (
             <div className="container">
                 { isLoading && <LoadingIndicator /> }
+                { auth && auth.credits }
                 <div className="row">
                     {this.renderSurveys()}
                 </div>
@@ -72,7 +73,8 @@ export class SurveyList extends Component {
 function mapStateToProps(state) {
     return {
         surveys: state.surveys.surveys,
-        isLoading: state.surveys.isLoading
+        isLoading: state.surveys.isLoading,
+        auth: state.auth
     }
 }
 export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(SurveyList);
