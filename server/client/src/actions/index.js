@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_ERROR, FETCH_SURVEYS_SUCCESS, DELETE_SURVEY_SUCCESS } from './types';
+import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_SUCCESS, FETCH_SURVEYS_ERROR,
+    REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/currentUser')
@@ -25,7 +26,7 @@ export const fetchSurveys = () => async dispatch => {
         dispatch({ type: FETCH_SURVEYS_SUCCESS, payload: res.data });
     }
     catch(err) {
-        dispatch({ type: FETCH_SURVEYS_ERROR, error: res.err })
+        dispatch({ type: FETCH_SURVEYS_ERROR, error: err })
     }
 }
 
@@ -34,6 +35,12 @@ export const deleteSurveySuccess = surveyId => {
 }
 
 export const deleteSurvey = (surveyId) => async dispatch => {
+    dispatch({ type: REQUEST_DELETE_SURVEY });
     await axios.delete(`/api/surveys/${surveyId}`, {});
-    dispatch(deleteSurveySuccess(surveyId));
+    try {
+        dispatch(deleteSurveySuccess(surveyId));
+    }
+    catch(err) {
+        dispatch({ type: DELETE_SURVEY_ERROR, error: err });
+    }
 }
