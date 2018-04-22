@@ -44,12 +44,6 @@ export default function(state = initialState, action) {
                     return survey._id !== action.surveyId
                 })
             }
-            // const newState = [...state];
-            // const indexToDelete = state.findIndex(survey => {
-            //     return survey._id === action.surveyId;
-            // })
-            // newState.splice(indexToDelete, 1);
-            // return newState;
 
         case DELETE_SURVEY_ERROR:
             return {
