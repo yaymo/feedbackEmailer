@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_SUCCESS, FETCH_SURVEYS_ERROR,
-    REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR } from './types';
+    REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR,
+    REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/currentUser')
@@ -13,10 +14,17 @@ export const handleToken = (token) => async dispatch => {
 };
 
 export const submitSurvey = (values, history) => async dispatch => {
+    dispatch({ type: REQUEST_SUBMIT_SURVEY });
     const res = await axios.post('/api/surveys', values);
 
+    try {
+        dispatch({ type: SUBMIT_SURVEY_SUCCESS, payload: res.data });
+    }
+    catch(err) {
+        dispatch({ type: SUBMIT_SURVEY_ERROR, error: err });
+    }
+    
     history.push('/surveys');
-    dispatch({ type: FETCH_USER, payload: res.data });
 }
 
 export const fetchSurveys = () => async dispatch => {
