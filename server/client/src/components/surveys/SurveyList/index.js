@@ -61,7 +61,6 @@ export class SurveyList extends Component {
         return (
             <div className="container">
                 { isLoading && <LoadingIndicator /> }
-                { auth && auth.credits }
                 <div className="row">
                     {this.renderSurveys()}
                 </div>
@@ -70,11 +69,10 @@ export class SurveyList extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ surveys: { surveys, isLoading }}) {
     return {
-        surveys: state.surveys.surveys,
-        isLoading: state.surveys.isLoading,
-        auth: state.auth
+        surveys,
+        isLoading
     }
 }
 export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(SurveyList);
