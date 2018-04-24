@@ -57,7 +57,7 @@ export class SurveyList extends Component {
         });
     }
     render() {
-        const { isLoading, auth } = this.props;
+        const { isLoading } = this.props;
         return (
             <div className="container">
                 { isLoading && <LoadingIndicator /> }

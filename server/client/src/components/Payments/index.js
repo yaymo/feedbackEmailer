@@ -16,13 +16,13 @@ class Payments extends Component {
     render() {
         return (
             <StripeCheckout 
-                name="Emailer"
-                description="$5 for 5 email credits"
+                name="Loop.io Email Credits"
+                description="Pay $5 for 5 email credits"
                 amount={500}
                 token={token => this.props.handleToken(token)}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
                 >
-                <button >
+                <button type='button' className='btn btn-success'>
                     Add Credits
                 </button>
             </StripeCheckout>
