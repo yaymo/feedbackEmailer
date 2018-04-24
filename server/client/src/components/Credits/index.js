@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Payments from '../Payments/';
+import './credits.css';
 
 class Credits extends Component {
     static propTypes = {
@@ -14,10 +15,14 @@ class Credits extends Component {
     render() {
         const { auth } = this.props;
         return (
-            <div className="bg-light">
-                <h2>Available Credits: <span>{ auth && auth.credits }</span> </h2>
-                <h3>Need More?</h3>
-                <Payments />
+            <div className="jumbotron jumbotron-fluid">
+                <div className='container-fluid'>
+                    <h1 className='display-4 text-center'><u>CREDITS</u></h1>
+                    <div>
+                        <h2>Remaining Credits: <span>{ auth && auth.credits }</span> </h2>
+                        <h3>Do you need more?</h3> <Payments />
+                    </div>
+                </div>
             </div>
         )
     }
@@ -26,7 +31,8 @@ class Credits extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth
+        auth: state.auth,
+
     }
 }
 export default connect(mapStateToProps)(Credits);

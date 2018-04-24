@@ -1,0 +1,17 @@
+.jumbotron {
+    margin-top: 20px;
+    padding-top: 30px;
+    height: 100%;
+    margin-bottom: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.2s;
+}
+
+.jumbotron:hover {
+    box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+}
+
+h1 {
+    font-family: 'Roboto';
+}
