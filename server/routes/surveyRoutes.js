@@ -22,6 +22,12 @@ module.exports = app => {
         res.send('Thanks for voting!');
     });
 
+    app.get('/api/surveys/:surveyId', async (req, res) => {
+        const survey = await Survey.findOne({ _id: req.params.surveyId });
+
+        res.send(survey);
+    })
+
     app.post('/api/surveys/webhooks', (req, res) => {
         const p = new Path('/api/surveys/:surveyId/:choice');
         _.chain(req.body)
@@ -68,13 +74,29 @@ module.exports = app => {
         await mailer.send();
         await survey.save();
         req.user.credits -= 1;
+        req.user.usedCredits +=1;
         const user = await req.user.save();
         res.send(user);
-    }
-    catch (err) {
-        res.status(422).send(err);
-    }
-});
+        
+        }
+        catch (err) {
+            res.status(422).send(err);
+        }
+    });
+
+    app.put('/api/surveys/:surveyId', async (req, res) => {
+        try {
+            await Survey.findOneAndUpdate({ _id: req.params.surveyId }, {
+                title: req.body.title
+            })
+            .exec();
+            res.send('updated survey!').status(200);
+        }
+        catch(e) {
+            res.send(e).status(400);
+        }
+    });
+
     app.delete('/api/surveys/:surveyId', async (req, res) => {
         try {
             await Survey
