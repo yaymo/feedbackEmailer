@@ -15,13 +15,14 @@ class Credits extends Component {
     render() {
         const { auth } = this.props;
         return (
-            <div className="jumbotron jumbotron-fluid">
+            <div className='jumbotron jumbotron-fluid'>
                 <div className='container-fluid'>
                     <h1 className='display-4 text-center'><u>CREDITS</u></h1>
-                    <div>
-                        <h2>Remaining Credits: <span>{ auth && auth.credits }</span> </h2>
-                        <h3>Do you need more?</h3> <Payments />
+                    <div className='credit-counts'>
+                        <h2>Available Credits: <span className={auth && auth.credits <= 5 ? 'low-credits' : 'credits'}>{ auth && auth.credits }</span> </h2>
+                        <h2>Total Credits Used: <span className='credits'> { auth && auth.usedCredits } </span></h2> 
                     </div>
+                    <Payments />
                 </div>
             </div>
         )

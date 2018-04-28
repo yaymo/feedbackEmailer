@@ -5,6 +5,7 @@ import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_SUCCESS, FETCH_SURVEYS
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/currentUser')
+    console.log('user modal', res.data);
     dispatch({ type: FETCH_USER, payload: res.data});
 };
 
