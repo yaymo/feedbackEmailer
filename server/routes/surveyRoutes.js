@@ -85,12 +85,13 @@ module.exports = app => {
     });
 
     app.put('/api/surveys/:surveyId', async (req, res) => {
+        const { title } = req.body;
         try {
-            await Survey.findOneAndUpdate({ _id: req.params.surveyId }, {
-                title: req.body.title
+             await Survey.updateOne({ _id: req.params.surveyId }, {
+                $set: { title }
             })
             .exec();
-            res.send('updated survey!').status(200);
+            res.send({}).status(200);
         }
         catch(e) {
             res.send(e).status(400);
