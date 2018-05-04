@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Card from './';
+import EditableField from '../utils/EditableField/';
 
 configure({ adapter: new Adapter() });
 
@@ -18,7 +19,7 @@ describe('<Card />', () => {
         const func = jest.fn();
         const wrapper = shallow(<Card title='My card' body='my body' yes={0} no={0}
                                     dateSent='1/1/2018' onDelete={func}/>);
-        expect(wrapper.find('.card-title').text()).toBe('My card');
+        expect(wrapper.find(EditableField).length).toBe(1);
         expect(wrapper.find('.card-text').length).toBe(1);        
     });
 
