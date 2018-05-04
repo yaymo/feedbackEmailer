@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import EditableField from '../utils/EditableField/';
 import './card.css'
 
 class Card extends Component {
@@ -25,7 +26,8 @@ class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+            isEditing: true
         };
     }
 
@@ -56,7 +58,7 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                        <h3 className="card-title">{ this.props.title }</h3>
+                        <EditableField text={this.props.title} />
                     { activeTab === "1" && 
                         <h5 className="card-text">
                             Loops
