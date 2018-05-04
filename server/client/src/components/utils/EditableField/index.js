@@ -12,7 +12,7 @@ class EditableField extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: this.props.text || '',
+            text: this.props.text,
             isEditing: false
         }
     }
@@ -30,14 +30,14 @@ class EditableField extends Component {
 
         if(isEditing) {
             return (
-                <input value={ text } 
+                <input value={ text } type='text'
                 ref={(input) => { this.textInput = input }}
                 onChange={ this.handleChange }
                 onBlur={ this.handleToggle } />
             )
         }
         return (
-            <h3 onClick={ this.handleToggle }>
+            <h3 onClick={ this.handleToggle } style={{ cursor: 'pointer'}}>
                 {text}
             </h3>
         )
