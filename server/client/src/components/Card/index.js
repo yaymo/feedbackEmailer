@@ -58,7 +58,9 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                        <EditableField text={this.props.title} />
+                        <div className="card-title">
+                            <EditableField text={this.props.title} />
+                        </div>
                     { activeTab === "1" && 
                         <h5 className="card-text">
                             Loops

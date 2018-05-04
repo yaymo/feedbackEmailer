@@ -31,9 +31,8 @@ class EditableField extends Component {
         if(isEditing) {
             return (
                 <input value={ text } type='text'
-                ref={(input) => { this.textInput = input }}
                 onChange={ this.handleChange }
-                onBlur={ this.handleToggle } />
+                onBlur={ this.handleToggle } autoFocus/>
             )
         }
         return (
