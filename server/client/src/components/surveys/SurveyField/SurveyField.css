@@ -13,7 +13,7 @@ label {
     font-size: 15px;
 }
 
-input {
+.field-input {
     width: 100%;
     padding-left: 15px;
     height: 40px;
@@ -23,7 +23,7 @@ input {
     background-color: transparent;
 }
 
-input:focus {
+.field-input:focus {
     border: none;
     border-bottom: 1px solid #009688;
     outline: none;

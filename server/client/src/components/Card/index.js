@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import EditableField from '../utils/EditableField/';
+import axios from 'axios';
 import './card.css'
 
 class Card extends Component {
@@ -27,7 +27,8 @@ class Card extends Component {
         super(props);
         this.state = {
             activeTab: '1',
-            isEditing: true
+            isEditing: false,
+            text: this.props.title
         };
     }
 
@@ -35,9 +36,23 @@ class Card extends Component {
         this.setState({ activeTab: evt.target.dataset.tab });
     }
 
-    render() {
-        const { activeTab } = this.state;
+    handleToggle = () => {
+        this.setState({ isEditing: !this.state.isEditing });
+        if(this.state.isEditing) {
+            this.handleBlur(this.props._id, this.state.text);
+        }
+    }
 
+    handleBlur = async (id, text) => {
+        await axios.put(`/api/surveys/${id}`, { title: text });
+    }
+
+    handleChange = (e) => {
+        this.setState({ text: e.target.value });
+    }
+
+    render() {
+        const { activeTab, isEditing, text } = this.state;
         return (
             <div className="col-sm-12 col-md-12 col-lg-6  my-3">
                 <div className="card">
@@ -58,9 +73,12 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                        <div className="card-title">
-                            <EditableField text={this.props.title} />
-                        </div>
+                            { isEditing ? 
+                                <input value={text} onChange={this.handleChange} onBlur={this.handleToggle} className="title-input" autoFocus/> :
+                                <div className="card-title">
+                                    <h3 onClick={this.handleToggle}>{text}</h3>
+                                </div>
+                            }
                     { activeTab === "1" && 
                         <h5 className="card-text">
                             Loops

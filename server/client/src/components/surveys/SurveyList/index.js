@@ -49,7 +49,7 @@ export class SurveyList extends Component {
             return (
                 <Card key={_id} title={title}
                     body={body} dateSent={dateSent}
-                    yes={yes} no={no}
+                    yes={yes} no={no} _id={_id}
                     onDelete={ () => {
                         this.props.deleteSurvey(_id) 
                         }} />

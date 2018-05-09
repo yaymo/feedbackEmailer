@@ -91,7 +91,7 @@ module.exports = app => {
                 $set: { title }
             })
             .exec();
-            res.send({}).status(200);
+            res.send('ok').status(200);
         }
         catch(e) {
             res.send(e).status(400);

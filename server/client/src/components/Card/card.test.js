@@ -19,7 +19,7 @@ describe('<Card />', () => {
         const func = jest.fn();
         const wrapper = shallow(<Card title='My card' body='my body' yes={0} no={0}
                                     dateSent='1/1/2018' onDelete={func}/>);
-        expect(wrapper.find(EditableField).length).toBe(1);
+        expect(wrapper.find('.card-title').length).toBe(1);
         expect(wrapper.find('.card-text').length).toBe(1);        
     });
 
