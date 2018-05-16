@@ -1,9 +1,11 @@
 import { REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_ERROR, FETCH_SURVEYS_SUCCESS, 
     REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR,
-    REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR } from '../actions/types';
+    REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR, FILTER_SURVEYS } from '../actions/types';
 
 const initialState = {
     surveys: [],
+    filteredSurveys: [],
+    filterText: '',
     isLoading: false,
     error: null
 }
@@ -71,6 +73,14 @@ export default function(state = initialState, action) {
                 ...state,
                 isLoading: false,
                 error: action.error
+            }
+
+        case FILTER_SURVEYS:
+            return {
+                ...state,
+                surveys: state.surveys.filter(survey => {
+                    return survey.title.toLowerCase().includes(state.filterText)}),
+                filterText: action.text
             }
             
         default:

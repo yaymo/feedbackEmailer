@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() });
 describe('<Dashboard />', () => {
 
     it('renders without crashing', () => {
-        const wrapper = shallow(<Dashboard auth={{ credits: 1 }}/>);
+        const wrapper = shallow(<Dashboard auth={{ credits: 1 }} surveys={[]}/>);
         expect(wrapper.length).toBe(1);
     });
 
@@ -21,7 +21,7 @@ describe('<Dashboard />', () => {
     // });
 
     it('renders the surveyList component', () => {
-        const wrapper = shallow(<Dashboard auth={ { credits: 1 } }/>)
+        const wrapper = shallow(<Dashboard auth={ { credits: 1 } } surveys={[]}/>)
         expect(wrapper.find(SurveyList).length).toBe(1);
     });
 });

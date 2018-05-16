@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const EditableField = (props) => {
-        if(props.isEditing) {
+class EditableField extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: this.props.text
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({ text: e.target.value });
+    }
+    render() {
+        const { text } = this.state;
+
+        if(this.props.isEditing) {
             return (
-                <input value={ props.text } type='text'
-                onChange={ props.handleChange }
-                onBlur={ props.handleToggle } autoFocus/>
+                <input value={ text } type='text'
+                    onChange={ this.handleChange }
+                    onBlur={this.props.handleToggle} autoFocus />
             )
         }
         return (
-            <h3 onClick={ props.handleToggle } style={{ cursor: 'pointer'}}>
-                {props.text}
+            <h3 onClick={ this.props.handleToggle } style={{ cursor: 'pointer'}}>
+                {text}
             </h3>
         )
     }
+}
 
 export default EditableField;

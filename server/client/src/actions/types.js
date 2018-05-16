@@ -8,3 +8,7 @@ export const DELETE_SURVEY_ERROR = 'delete_survey_error';
 export const REQUEST_SUBMIT_SURVEY = 'request_submit_survey';
 export const SUBMIT_SURVEY_SUCCESS = 'submit_survey_success';
 export const SUBMIT_SURVEY_ERROR = 'submit_survey_error';
+export const UPDATE_SURVEY = 'update_survey';
+export const UPDATE_SURVEY_SUCCESS = 'update_survey_success';
+export const UPDATE_SURVEY_ERROR = 'update_survey_error';
+export const FILTER_SURVEYS = 'filter_surveys';

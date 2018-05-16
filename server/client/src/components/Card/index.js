@@ -73,7 +73,7 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                            { isEditing ? 
+                            {  isEditing ? 
                                 <input value={text} onChange={this.handleChange} onBlur={this.handleToggle} className="title-input" autoFocus/> :
                                 <div className="card-title">
                                     <h3 onClick={this.handleToggle}>{text}</h3>
