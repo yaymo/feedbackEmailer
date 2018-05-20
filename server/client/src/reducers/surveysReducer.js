@@ -65,7 +65,8 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                surveys: state.surveys.concat(action.payload)
+                surveys: state.surveys.concat(action.payload),
+                filterText: ''
             }
 
         case SUBMIT_SURVEY_ERROR:

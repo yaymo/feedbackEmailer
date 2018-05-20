@@ -76,7 +76,7 @@ module.exports = app => {
         req.user.credits -= 1;
         req.user.usedCredits +=1;
         const user = await req.user.save();
-        res.send(user);
+        res.send(survey);
         
         }
         catch (err) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SurveyList from '../surveys/SurveyList/';
-import { fetchSurveys, deleteSurvey } from '../../actions/';
+import { fetchSurveys } from '../../actions/';
 import './Dashboard.css';
 
 export class Dashboard extends Component {
@@ -29,7 +29,6 @@ export class Dashboard extends Component {
             no: PropTypes.number
         })),
         fetchSurveys: PropTypes.func,
-        deleteSurvey: PropTypes.func
     }
 
     static defaultProps = {
@@ -45,22 +44,24 @@ export class Dashboard extends Component {
             no: 0
         },
         fetchSurveys: () => {},
-        deleteSurvey: () => {}
     }
 
     componentDidMount() {
         this.props.fetchSurveys();
     } 
 
+    handleChange = (filterText) => {
+        this.setState({filterText});
+    }
+
     render() {
         const { isLoading } = this.props;
-        const surveys = this.props.surveys.filter(survey => {
-            return survey.title.toLowerCase().includes(this.state.filterText.toLowerCase());
-        });
-        return (
+        const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase() || ''));
+        // const surveys2 = this.props.surveys;
+        return  (
             <div>
                 <SurveyList surveys={surveys} isLoading={isLoading}
-                    handleChange={filterText => this.setState({ filterText })} />
+                    handleChange={filterText => this.handleChange( filterText )} />
                 <div className="fixed-action-btn">
                     {this.props.auth && this.props.auth.credits ?
                         <Link to="/surveys/new" className="btn btn-danger btn-lg plus">
@@ -84,4 +85,4 @@ function mapStateToProps({ auth, surveys: { surveys, isLoading }}) {
     }
 }
 
-export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(Dashboard);
+export default connect(mapStateToProps, { fetchSurveys })(Dashboard);

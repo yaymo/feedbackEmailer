@@ -20,7 +20,7 @@ export const submitSurvey = (values, history) => async dispatch => {
 
     try {
         dispatch({ type: SUBMIT_SURVEY_SUCCESS, payload: res.data });
-        dispatch({ type: FETCH_USER, payload: res.data })
+        // dispatch({ type: FETCH_USER, payload: res.data })
     }
     catch(err) {
         dispatch({ type: SUBMIT_SURVEY_ERROR, error: err });
