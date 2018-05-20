@@ -17,10 +17,9 @@ export const handleToken = (token) => async dispatch => {
 export const submitSurvey = (values, history) => async dispatch => {
     dispatch({ type: REQUEST_SUBMIT_SURVEY });
     const res = await axios.post('/api/surveys', values);
-
     try {
         dispatch({ type: SUBMIT_SURVEY_SUCCESS, payload: res.data });
-        // dispatch({ type: FETCH_USER, payload: res.data })
+        dispatch(this.fetchUser());
     }
     catch(err) {
         dispatch({ type: SUBMIT_SURVEY_ERROR, error: err });

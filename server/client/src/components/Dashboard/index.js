@@ -58,6 +58,7 @@ export class Dashboard extends Component {
         const { isLoading } = this.props;
         const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase() || ''));
         // const surveys2 = this.props.surveys;
+        console.log(surveys);
         return  (
             <div>
                 <SurveyList surveys={surveys} isLoading={isLoading}
