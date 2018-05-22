@@ -33,6 +33,8 @@ export class Header extends Component {
                     <li key={ 3 } className="nav-item">
                         <a className="nav-link" href="/credits">Credits</a></li>,
                     <li key={ 4 } className="nav-item">
+                        <a className="nav-link" href="/contacts">Contacts</a></li>,
+                    <li key={ 5 } className="nav-item">
                         <a className="nav-link" href="/api/logout">Logout</a></li>
                 ];
         }
