@@ -16,6 +16,14 @@
     margin-bottom: 15px;
     color: #333;
     cursor: pointer;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.card-title:hover {
+    background: #F8F8FF;
+    border: 1px solid #5AB1BB;
+    border-radius: 3px;
 }
 
 .title-input {
@@ -24,6 +32,7 @@
     border-bottom: 1px solid #009688;
     outline: none;
     box-shadow: 0 1px 0 0 #26a69a;
+    font-size: 30px;
 }
 
 .card-text {
