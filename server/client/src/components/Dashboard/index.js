@@ -20,30 +20,14 @@ export class Dashboard extends Component {
         auth: PropTypes.shape({
             credits: PropTypes.number
         }),
-        surveys: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string,
-            title: PropTypes.string,
-            body: PropTypes.string,
-            dateSent: PropTypes.string,
-            yes: PropTypes.number,
-            no: PropTypes.number
-        })),
-        fetchSurveys: PropTypes.func,
+        fetchSurveys: PropTypes.func
     }
 
     static defaultProps = {
         auth: {
             credits: 0
         },
-        surveys: {
-            _id: '',
-            title: '',
-            body: '',
-            dateSent: '',
-            yes: 0,
-            no: 0
-        },
-        fetchSurveys: () => {},
+        fetchSurveys: () => {}
     }
 
     componentDidMount() {
@@ -57,8 +41,6 @@ export class Dashboard extends Component {
     render() {
         const { isLoading } = this.props;
         const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase() || ''));
-        // const surveys2 = this.props.surveys;
-        console.log(surveys);
         return  (
             <div>
                 <SurveyList surveys={surveys} isLoading={isLoading}

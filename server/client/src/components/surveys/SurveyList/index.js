@@ -1,12 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from '../../Card/';
 import LoadingIndicator from '../../Loading/';
 import { deleteSurvey } from '../../../actions/';
 import { connect } from 'react-redux';
 
 class SurveyList extends React.Component  {
-    constructor(props) {
-        super(props);
+
+    static propTypes = {
+        surveys: PropTypes.arrayOf(PropTypes.shape({
+                _id: PropTypes.string,
+                title: PropTypes.string,
+                body: PropTypes.string,
+                dateSent: PropTypes.string,
+                yes: PropTypes.number,
+                no: PropTypes.number
+            })),
+            deleteSurvey: PropTypes.func
+    }
+
+    static defaultProps = {
+        surveys: {
+            _id: '',
+            title: '',
+            body: '',
+            dateSent: '',
+            yes: 0,
+            no: 0
+        },
+        deleteSurvey: () => {}
     }
 
     render() {

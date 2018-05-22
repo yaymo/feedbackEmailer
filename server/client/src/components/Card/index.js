@@ -73,33 +73,33 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                            {  isEditing ? 
-                                <input value={text} onChange={this.handleChange} onBlur={this.handleToggle} className="title-input" autoFocus/> :
-                                <div className="card-title">
-                                    <h3 onClick={this.handleToggle}>{text}</h3>
-                                </div>
-                            }
-                    { activeTab === "1" && 
-                        <h5 className="card-text">
-                            Loops
-                            <div className="survey-loops">{ this.props.body }</div>
-                        </h5>    
-                    }
-                    { activeTab === "2" && 
-                    <div className="card-data">
-                        <a>Yes: { this.props.yes }</a>
-                        <a>No: { this.props.no }</a>
-                        <p className="survey-created pull-right">
-                            Sent: { moment(this.props.dateSent).format('MMMM Do, YYYY') }
-                        </p>
-                    </div>
-                    }
-                    { activeTab === "3" &&
-                        <button type="button" className="btn btn-outline-danger delete-survey"
-                            onClick={ this.props.onDelete }>
-                            Delete
-                        </button>
-                    }
+                        {  isEditing ? 
+                            <input value={text} onChange={this.handleChange} onBlur={this.handleToggle} className="title-input" autoFocus/> :
+                            <div className="card-title">
+                                <h3 onClick={this.handleToggle}>{text}</h3>
+                            </div>
+                        }
+                        { activeTab === "1" && 
+                            <h5 className="card-text">
+                                Loops
+                                <div className="survey-loops">{ this.props.body }</div>
+                            </h5>    
+                        }
+                        { activeTab === "2" && 
+                        <div className="card-data">
+                            <a>Yes: { this.props.yes }</a>
+                            <a>No: { this.props.no }</a>
+                            <p className="survey-created pull-right">
+                                Sent: { moment(this.props.dateSent).format('MMMM Do, YYYY') }
+                            </p>
+                        </div>
+                        }
+                        { activeTab === "3" &&
+                            <button type="button" className="btn btn-outline-danger delete-survey"
+                                onClick={ this.props.onDelete }>
+                                Delete
+                            </button>
+                        }
                     </div>
                 </div>
             </div>
