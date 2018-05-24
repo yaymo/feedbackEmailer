@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Contacts = ({ title, children }) => {
-    return (
-        <ul><h3>{ title }</h3>
-            { children }
-        </ul>
-    )
+class Contacts extends Component {
+    render() {
+        return (
+                React.Children.map(this.props.children, child => {
+                    return React.cloneElement(child, {
+                        email: child.props.email,
+                        ...child.props
+                    });
+                })
+        )
+    }
 }
 
 export default Contacts;
