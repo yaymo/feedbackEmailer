@@ -3,7 +3,13 @@ const { Schema } = mongoose;
 
 const recipientSchema = new Schema({
     email: String,
+    firstName: String,
+    lastName: String,
+    _user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     responded: { type: Boolean, default: false }
 });
 
-module.exports = recipientSchema;
+mongoose.model('recipients', recipientSchema);
