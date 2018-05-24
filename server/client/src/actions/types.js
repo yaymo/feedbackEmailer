@@ -12,3 +12,6 @@ export const UPDATE_SURVEY = 'update_survey';
 export const UPDATE_SURVEY_SUCCESS = 'update_survey_success';
 export const UPDATE_SURVEY_ERROR = 'update_survey_error';
 export const FILTER_SURVEYS = 'filter_surveys';
+export const REQUEST_FETCH_CONTACTS = 'request_fetch_contacts';
+export const FETCH_CONTACTS_SUCCESS = 'fetch_contacts_success';
+export const FETCH_CONTACTS_ERROR = 'fetch_contacts_error';
