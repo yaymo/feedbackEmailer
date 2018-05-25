@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Contacts extends Component {
 
   static propTypes = {
-    children: PropTypes.element
+    children: PropTypes.array
   }
 
   render() {

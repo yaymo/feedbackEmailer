@@ -9,12 +9,12 @@ import Contact from '../Contact';
 class ContactList extends React.Component {
 
   static propTypes = {
-    contacts: PropTypes.obj,
+    contacts: PropTypes.array,
     fetchContacts: PropTypes.func
   }
 
   static defaultProps = {
-    contacts: {},
+    contacts: [],
     fetchContacts: () => {}
   }
 
@@ -23,7 +23,7 @@ class ContactList extends React.Component {
   }
 
   render() {
-    const contacts = this.props.contacts.contacts.map((contact, i) => {
+    const contacts = this.props.contacts.map((contact, i) => {
       return (
         <Contact key={ i } firstName={contact.firstName} lastName={contact.lastName} email={contact.email} />
       )
@@ -38,9 +38,9 @@ class ContactList extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ contacts: { contacts }}) {
   return {
-    contacts: state.contacts
+    contacts
   }
 }
 
