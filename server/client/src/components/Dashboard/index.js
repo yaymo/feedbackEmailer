@@ -21,7 +21,7 @@ export class Dashboard extends Component {
             credits: PropTypes.number
         }),
         isLoading: PropTypes.bool,
-        surveys: PropTypes.arrayOf(PropTypes.obj),
+        surveys: PropTypes.array,
         fetchSurveys: PropTypes.func
     }
 

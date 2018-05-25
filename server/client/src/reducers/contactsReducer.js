@@ -14,14 +14,14 @@ export default function(state = initialState, action) {
                 isLoading: true
             }
 
-        case FETCH_CONTACTS_SUCCESS: 
+        case FETCH_CONTACTS_SUCCESS:
             return {
                 ...state,
                 contacts: action.payload,
                 isLoading: false
             }
 
-        case FETCH_CONTACTS_ERROR: 
+        case FETCH_CONTACTS_ERROR:
             return {
                 ...state,
                 error: action.error,
