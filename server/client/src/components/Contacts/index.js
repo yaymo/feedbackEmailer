@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Contacts extends Component {
-    render() {
-        return (
-                React.Children.map(this.props.children, child => {
-                    return React.cloneElement(child, {
-                        email: child.props.email,
-                        ...child.props
-                    });
-                })
-        )
-    }
+
+  static propTypes = {
+    children: PropTypes.element
+  }
+
+  render() {
+    return (
+      React.Children.map(this.props.children, (child) => {
+        return React.cloneElement(child, {
+          email: child.props.email,
+          ...child.props
+        });
+      })
+    );
+  }
 }
 
 export default Contacts;

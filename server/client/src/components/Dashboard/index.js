@@ -10,7 +10,7 @@ export class Dashboard extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             filterText: ''
         }
@@ -20,6 +20,8 @@ export class Dashboard extends Component {
         auth: PropTypes.shape({
             credits: PropTypes.number
         }),
+        isLoading: PropTypes.bool,
+        surveys: PropTypes.arrayOf(PropTypes.obj),
         fetchSurveys: PropTypes.func
     }
 
@@ -27,12 +29,14 @@ export class Dashboard extends Component {
         auth: {
             credits: 0
         },
+        isLoading: false,
+        surveys: [],
         fetchSurveys: () => {}
     }
 
     componentDidMount() {
         this.props.fetchSurveys();
-    } 
+    }
 
     handleChange = (filterText) => {
         this.setState({filterText});
@@ -59,7 +63,7 @@ export class Dashboard extends Component {
             </div>
         );
     }
-};
+}
 function mapStateToProps({ auth, surveys: { surveys, isLoading }}) {
     return {
         auth,
