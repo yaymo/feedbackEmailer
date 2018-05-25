@@ -4,10 +4,10 @@ module.exports = (survey) => {
     return `
         <html>
             <body>
+                <h2>Hi!</h2>
                 <div style="text-align: center;">
-                    <h3>Test survey email content! </h3>
-                    <p>Please answer the questions</p>
-                    <p>${survey.body}</p>
+                    <h3>${survey.body}</h3>
+                    <p>Please click 'Yes' if you enjoyed our product :)</p>
                     <div>
                         <a href="${keys.redirectDomain}/api/surveys/${survey.id}/yes">Yes</a>
                     </div>
