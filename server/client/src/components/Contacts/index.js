@@ -8,7 +8,17 @@ import ContactTable from './ContactTable';
 class Contacts extends Component {
 
   static propTypes = {
-    children: PropTypes.array
+    submitContact: PropTypes.func,
+    form: PropTypes.shape({
+      values: PropTypes.object
+    })
+  }
+
+  static defaultProps = {
+    submitContact: () => {},
+    form: {
+      values: {}
+    }
   }
 
   handleSubmit = (e) => {

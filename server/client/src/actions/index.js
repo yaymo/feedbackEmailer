@@ -82,7 +82,6 @@ export const fetchContacts = () => async dispatch => {
 }
 
 export const submitContact = values => async dispatch => {
-    console.log('action values:', values);
     const res = await axios.post('/api/recipients', values);
     try {
         dispatch({ type: SUBMIT_CONTACT_SUCCESS, payload: res.data });
