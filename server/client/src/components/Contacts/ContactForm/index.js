@@ -46,7 +46,7 @@ export class ContactForm extends Component {
           <Row>
           <div className="col-sm-12 col-md-6 col-lg-6">
           <button type="button" className="btn btn-info btn-lg contact-btn"
-            onClick={ this.props.handleClear }>
+            onClick={ this.props.handleClear } disabled={ pristine || submitting }>
             Clear
           </button>
           </div>
