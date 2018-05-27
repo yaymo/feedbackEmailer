@@ -12,14 +12,20 @@ export class ContactForm extends Component {
   static propTypes = {
     label: PropTypes.string,
     name: PropTypes.string,
-    handleSubmit: PropTypes.func,
-    onContactSubmit: PropTypes.func
+    onContactSubmit: PropTypes.func,
+    handleClear: PropTypes.func,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+    invalid: PropTypes.bool
   }
   static defaultProps = {
     label: '',
     name: '',
-    handleSubmit: () => {},
-    onContactSubmit: () => {}
+    onContactSubmit: () => {},
+    handleClear: () => {},
+    pristine: true,
+    submitting: false,
+    invalid: false
   }
   renderFields() {
     return _.map(ContactFormFields, ({ name, label }) => {
@@ -29,20 +35,24 @@ export class ContactForm extends Component {
   }
 
   render() {
+    const { pristine, submitting, invalid } = this.props;
     return (
       <Grid>
-        <form onSubmit={(e) => this.props.onContactSubmit(e)}>
+        <form onSubmit={(e) => this.props.onContactSubmit(e)}
+          id="contact-form">
           <Row>
           { this.renderFields() }
           </Row>
           <Row>
           <div className="col-sm-12 col-md-6 col-lg-6">
-          <button type="button" className="btn btn-info btn-lg contact-btn">
+          <button type="button" className="btn btn-info btn-lg contact-btn"
+            onClick={ this.props.handleClear }>
             Clear
           </button>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6">
-          <button type="submit" className="btn btn-success btn-lg pull-right contact-btn" >
+          <button type="submit" className="btn btn-success btn-lg pull-right contact-btn"
+            disabled={ pristine || submitting || invalid }>
             Add
           </button>
           </div></Row>
@@ -54,7 +64,7 @@ export class ContactForm extends Component {
 
 function validate(values) {
   const errors = {};
-  errors.Email = validateEmails(values.Email || '');
+  errors.email = validateEmails(values.email || '');
   _.each(ContactFormFields, ({ name }) => {
     if(!values[name]) {
       errors[name] = 'You must provide a value';
