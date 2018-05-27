@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { fetchContacts } from '../../../actions';
+import './contactTable.css';
 
 import LoadingIndicator from '../../Loading';
 
@@ -39,8 +40,8 @@ class ContactTable extends React.Component {
           defaultSorted={[
             { id: "firstName", desc: true }
           ]}
-          defaultPageSize={ 5 }
-          className="-striped -highlight"
+          defaultPageSize={ 10 }
+          className="-striped -highlight contact-table"
         />
       </React.Fragment>
     )
