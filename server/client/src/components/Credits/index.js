@@ -20,7 +20,7 @@ class Credits extends Component {
                     <h1 className='display-4 text-center'><u>CREDITS</u></h1>
                     <div className='credit-counts'>
                         <h2>Available Credits: <span className={auth && auth.credits <= 5 ? 'low-credits' : 'credits'}>{ auth && auth.credits }</span> </h2>
-                        <h2>Total Credits Used: <span className='credits'> { auth && auth.usedCredits } </span></h2> 
+                        <h2>Total Credits Used: <span className='credits'> { auth && auth.usedCredits } </span></h2>
                     </div>
                     <Payments />
                 </div>

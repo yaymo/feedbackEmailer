@@ -12,7 +12,8 @@ class Card extends Component {
         yes: PropTypes.number.isRequired,
         no: PropTypes.number.isRequired,
         dateSent: PropTypes.string.isRequired,
-        onDelete: PropTypes.func.isRequired
+        onDelete: PropTypes.func.isRequired,
+        _id: PropTypes.string.isRequired
     }
 
     static defaultProps = {
@@ -21,7 +22,8 @@ class Card extends Component {
         yes: 0,
         no: 0,
         dateSent: '',
-        onDelete: () => {}
+        onDelete: () => {},
+        _id: ''
     }
     constructor(props) {
         super(props);
@@ -73,19 +75,19 @@ class Card extends Component {
                         </ul>
                     </div>
                     <div className="card-body">
-                        {  isEditing ? 
+                        {  isEditing ?
                             <input value={text} onChange={this.handleChange} onBlur={this.handleToggle} className="title-input" autoFocus/> :
                             <div className="card-title">
                                 <h3 onClick={this.handleToggle}>{text}</h3>
                             </div>
                         }
-                        { activeTab === "1" && 
+                        { activeTab === "1" &&
                             <h5 className="card-text">
                                 Loops
                                 <div className="survey-loops">{ this.props.body }</div>
-                            </h5>    
+                            </h5>
                         }
-                        { activeTab === "2" && 
+                        { activeTab === "2" &&
                         <div className="card-data">
                             <a>Yes: { this.props.yes }</a>
                             <a>No: { this.props.no }</a>

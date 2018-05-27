@@ -8,7 +8,7 @@ import Landing from '../Landing';
 import Dashboard from '../Dashboard';
 import SurveyNew from '../surveys/SurveyNew/';
 import Credits from '../Credits/'
-import ContactTable from '../ContactTable';
+import Contacts from '../Contacts';
 import './App.css';
 
 
@@ -35,7 +35,7 @@ class App extends Component {
                             <Route exact path='/surveys' component={Dashboard} />
                             <Route path='/surveys/new' component={SurveyNew} />
                             <Route path='/credits' component={Credits} />
-                            <Route path='/contacts' component={ContactTable} />
+                            <Route path='/contacts' component={Contacts} />
                         </div>
                     </div>
                 </BrowserRouter>

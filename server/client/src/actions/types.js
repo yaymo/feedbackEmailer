@@ -15,3 +15,5 @@ export const FILTER_SURVEYS = 'filter_surveys';
 export const REQUEST_FETCH_CONTACTS = 'request_fetch_contacts';
 export const FETCH_CONTACTS_SUCCESS = 'fetch_contacts_success';
 export const FETCH_CONTACTS_ERROR = 'fetch_contacts_error';
+export const SUBMIT_CONTACT_SUCCESS = 'submit_contact_success';
+export const SUBMIT_CONTACT_ERROR = 'submit_contact_error';

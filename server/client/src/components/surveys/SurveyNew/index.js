@@ -23,7 +23,7 @@ export class SurveyNew extends Component {
         if(this.state.showFormReview) {
             return <SurveyFormReview onCancel={ this.handleCancel }/>;
         }
-        return ( 
+        return (
             <SurveyForm onSurveySubmit={ this.handleSubmit }/>
         );
     }

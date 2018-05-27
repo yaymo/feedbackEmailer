@@ -7,7 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe('<SurveyField />', () => {
     it('renders without crashing', () => {
-        const wrapper = shallow(<SurveyField input='' label='label' meta={{ error: {}, touched: false} }/>);
+        const wrapper = shallow(<SurveyField input={{}} label='label' meta={{ error: '', touched: false} }/>);
         expect(wrapper.length).toBe(1);
     });
 });

@@ -3,7 +3,8 @@ import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_SUCCESS, FETCH_SURVEYS
     REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR,
     REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR,
     UPDATE_SURVEY_SUCCESS, UPDATE_SURVEY_ERROR, FILTER_SURVEYS,
-    REQUEST_FETCH_CONTACTS, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR } from './types';
+    REQUEST_FETCH_CONTACTS, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR,
+    SUBMIT_CONTACT_SUCCESS, SUBMIT_CONTACT_ERROR } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/currentUser')
@@ -77,5 +78,16 @@ export const fetchContacts = () => async dispatch => {
     }
     catch(err) {
         dispatch({ type: FETCH_CONTACTS_ERROR, error: err });
+    }
+}
+
+export const submitContact = values => async dispatch => {
+    console.log('action values:', values);
+    const res = await axios.post('/api/recipients', values);
+    try {
+        dispatch({ type: SUBMIT_CONTACT_SUCCESS, payload: res.data });
+    }
+    catch(err) {
+        dispatch({ type: SUBMIT_CONTACT_ERROR, error: err });
     }
 }

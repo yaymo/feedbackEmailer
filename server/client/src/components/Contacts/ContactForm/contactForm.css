@@ -1,0 +1,23 @@
+.pull-right {
+  float: right !important;
+}
+.contact-btn {
+  width: 60%;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  font-size: 25px;
+  padding: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .contact-btn {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}

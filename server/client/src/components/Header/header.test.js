@@ -14,7 +14,7 @@ describe('<Header />', () => {
     it('displays correct nav links when authenticated', () => {
         const wrapper = shallow(<Header auth={{}} />);
 
-        expect(wrapper.find('.nav-link').length).toBe(3);
+        expect(wrapper.find('.nav-link').length).toBe(4);
     });
 
     it('displays login link when not authenticated', () => {

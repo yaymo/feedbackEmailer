@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import { fetchContacts } from '../../actions';
+import { fetchContacts } from '../../../actions';
 
-import LoadingIndicator from '../Loading';
+import LoadingIndicator from '../../Loading';
 
 class ContactTable extends React.Component {
 

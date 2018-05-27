@@ -16,7 +16,7 @@ class Payments extends Component {
     }
     render() {
         return (
-            <StripeCheckout 
+            <StripeCheckout
                 name="Loop.io Email Credits"
                 description="Pay $5 for 5 email credits"
                 amount={500}

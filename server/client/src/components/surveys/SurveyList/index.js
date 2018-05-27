@@ -5,7 +5,7 @@ import LoadingIndicator from '../../Loading/';
 import { deleteSurvey } from '../../../actions/';
 import { connect } from 'react-redux';
 
-class SurveyList extends React.Component  {
+export class SurveyList extends React.Component  {
 
     static propTypes = {
         surveys: PropTypes.arrayOf(PropTypes.shape({
@@ -16,7 +16,9 @@ class SurveyList extends React.Component  {
                 yes: PropTypes.number,
                 no: PropTypes.number
             })),
-            deleteSurvey: PropTypes.func
+            deleteSurvey: PropTypes.func,
+            isLoading: PropTypes.bool,
+            handleChange: PropTypes.func
     }
 
     static defaultProps = {
@@ -28,7 +30,9 @@ class SurveyList extends React.Component  {
             yes: 0,
             no: 0
         },
-        deleteSurvey: () => {}
+        deleteSurvey: () => {},
+        isLoading: false,
+        handleChange: () => {}
     }
 
     render() {
@@ -50,5 +54,5 @@ class SurveyList extends React.Component  {
             </div>
         );
     }
-} 
+}
 export default connect(null, { deleteSurvey })(SurveyList);

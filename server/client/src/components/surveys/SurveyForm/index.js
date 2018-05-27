@@ -26,9 +26,8 @@ export class SurveyForm extends Component {
     }
     renderFields() {
         return _.map(formFields, ({ label, name }) => {
-            return ( <Field component={SurveyField} type="text" 
-                            label={label} name={name} key={name} />
-            );
+            return <Field component={SurveyField} type="text"
+                        label={label} name={name} key={name} />
         });
     }
     render() {

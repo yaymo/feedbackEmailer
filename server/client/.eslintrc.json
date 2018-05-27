@@ -5,7 +5,9 @@
     ],
     "env": {
         "browser": true,
-        "mongo": true
+        "mongo": true,
+        "jest": true,
+        "node": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
@@ -29,5 +31,10 @@
         "prefer-arrow-callback": 1,
         "no-extra-parens": 1,
         "no-extra-semi": 1
+    },
+    "settings": {
+        "react": {
+            "version": "16.3"
+        }
     }
 }

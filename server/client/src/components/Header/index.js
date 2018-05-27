@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './Header.css';
 
 
-export class Header extends Component { 
+export class Header extends Component {
 
     static propTypes = {
         auth: PropTypes.oneOfType([
@@ -26,7 +26,7 @@ export class Header extends Component {
                 return (
                     <li key={ 1 }><a className="nav-link" href="/auth/google" id="google">Login</a></li>
                 );
-            default: 
+            default:
                 return [
                     <li key={ 2 } className="nav-item">
                         <a className="nav-link" href="/surveys">Dashboard</a></li>,
@@ -46,8 +46,8 @@ export class Header extends Component {
                             id="logo" className="navbar-brand">
                             Loop.io
                         </Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" 
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                    <button className="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
