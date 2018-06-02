@@ -19,7 +19,7 @@ describe('<SurveyForm />', () => {
         expect(wrapper.length).toBe(1);
     });
 
-    it('calls handleSubmit', () => {
+    it('calls handleSubmit once', () => {
         wrapper.find('.survey-form').simulate('submit');
         expect(handleSubmit.mock.calls.length).toBe(1);
     });

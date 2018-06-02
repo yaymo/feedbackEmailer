@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import StripeCheckout from 'react-stripe-checkout';
 import './payments.css';
 
-class Payments extends Component {
+export class Payments extends Component {
 
     static propTypes = {
         handleToken: PropTypes.func
