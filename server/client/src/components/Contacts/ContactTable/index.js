@@ -6,20 +6,16 @@ import 'react-table/react-table.css';
 import { fetchContacts } from '../../../actions';
 import './contactTable.css';
 
-import LoadingIndicator from '../../Loading';
-
-class ContactTable extends React.Component {
+export class ContactTable extends React.Component {
 
   static propTypes = {
     contacts: PropTypes.array,
     fetchContacts: PropTypes.func,
-    isLoading: PropTypes.bool
   }
 
   static defaultProps = {
     contacts: [],
     fetchContacts: () => {},
-    isLoading: false
   }
 
   componentDidMount() {
@@ -27,31 +23,27 @@ class ContactTable extends React.Component {
   }
 
   render() {
-    const { contacts, isLoading } = this.props;
+    const { contacts } = this.props;
     return (
-      <React.Fragment>
-        { isLoading && <LoadingIndicator />}
-        <ReactTable data={ contacts }
-          columns={[
-            { Header: "First Name", accessor: "firstName" },
-            { Header: "Last Name", accessor: "lastName" },
-            { Header: "Email", accessor: "email" }
-          ]}
-          defaultSorted={[
-            { id: "firstName", desc: true }
-          ]}
-          defaultPageSize={ 10 }
-          className="-striped -highlight contact-table"
-        />
-      </React.Fragment>
+      <ReactTable data={ contacts }
+        columns={[
+          { Header: "First Name", accessor: "firstName" },
+          { Header: "Last Name", accessor: "lastName" },
+          { Header: "Email", accessor: "email" }
+        ]}
+        defaultSorted={[
+          { id: "firstName", desc: true }
+        ]}
+        defaultPageSize={ 10 }
+        className="-striped -highlight contact-table"
+      />
     )
   }
 }
 
-function mapStateToProps({ contacts: { contacts, isLoading }}) {
+function mapStateToProps({ contacts: { contacts }}) {
   return {
-    contacts,
-    isLoading
+    contacts
   }
 }
 

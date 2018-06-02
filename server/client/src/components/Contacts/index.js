@@ -5,28 +5,31 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 import ContactForm from './ContactForm';
 import ContactTable from './ContactTable';
+import LoadingIndicator from '../Loading';
 
-class Contacts extends Component {
+export class Contacts extends Component {
 
   static propTypes = {
     submitContact: PropTypes.func,
-    form: PropTypes.shape({
+    contactForm: PropTypes.shape({
       values: PropTypes.object
     }),
-    reset: PropTypes.func
+    reset: PropTypes.func,
+    isLoading: PropTypes.bool
   }
 
   static defaultProps = {
     submitContact: () => {},
-    form: {
+    contactForm: {
       values: {}
     },
-    reset: () => {}
+    reset: () => {},
+    isLoading: false
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.submitContact(this.props.form.values);
+    this.props.submitContact(this.props.contactForm.values);
     this.handleClear();
   }
 
@@ -35,8 +38,10 @@ class Contacts extends Component {
   }
 
   render() {
+    const { isLoading } = this.props
     return (
       <React.Fragment>
+        { isLoading && <LoadingIndicator />}
         <ContactForm onContactSubmit={(e) => this.handleSubmit(e) }
           handleClear={this.handleClear } />
         <ContactTable />
@@ -45,9 +50,10 @@ class Contacts extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ form: { contactForm }, contacts: { isLoading }}) {
   return {
-     form: state.form.contactForm
+     contactForm,
+     isLoading
   }
 }
 const connectedForm = connect(mapStateToProps, actions)(Contacts);
