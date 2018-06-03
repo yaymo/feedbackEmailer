@@ -1,5 +1,5 @@
-import requireLogin from '../middlewares/requireLogin';
-import mongoose from 'mongoose';
+const requireLogin = require('../middlewares/requireLogin');
+const mongoose = require('mongoose');
 
 const Contact = mongoose.model('contact');
 

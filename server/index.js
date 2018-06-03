@@ -1,13 +1,13 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import keys from './config/keys';
-import cookieSession from 'cookie-session';
-import passport from 'passport';
-import bodyParser from 'body-parser';
-import './models/User';
-import './models/Survey';
-import './models/Contact';
-import './services/passport';
+const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const bodyParser = require ('body-parser');
+require ('./models/User');
+require ('./models/Survey');
+require ('./models/Contact');
+require ('./services/passport');
 
 mongoose.connect(keys.mongoURI);
 
