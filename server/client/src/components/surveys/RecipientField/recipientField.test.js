@@ -19,12 +19,12 @@ describe('<RecipientField />', () => {
     expect(handleToggle).toHaveBeenCalled();
   });
 
-  it('calls handleToggle onBlur', () => {
-    const handleToggle = jest.fn();
-    const wrapper = shallow(<RecipientField handleToggle={handleToggle}/>);
-    wrapper.find('.field-input').simulate('blur');
-    expect(handleToggle).toHaveBeenCalled();
-  });
+  // it('calls handleToggle onBlur', () => {
+  //   const handleToggle = jest.fn();
+  //   const wrapper = shallow(<RecipientField handleToggle={handleToggle}/>);
+  //   wrapper.find('.field-input').simulate('blur');
+  //   expect(handleToggle).toHaveBeenCalled();
+  // });
 
   it('displays an error when touched', () => {
     const error = 'error!';

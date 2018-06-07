@@ -38,12 +38,13 @@ export class SurveyForm extends Component {
         this.setState(({ isOpen }) => ({isOpen: !isOpen}))
     }
     render() {
+        const { isOpen } = this.state;
         return (
             <div>
                 <Grid>
                     <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)} className="survey-form">
                         {this.renderFields()}
-                        <Field component={RecipientField} type="text" name="recipients" key="recipients" isOpen={this.state.isOpen}
+                        <Field component={RecipientField} type="text" name="recipients" key="recipients" isOpen={isOpen}
                             handleToggle={this.handleToggle}  recipients={this.props.contacts}/>
                         <Link to="/surveys" className="btn btn-lg btn-danger">Cancel</Link>
                         <Button type="submit" bsStyle="primary" bsSize="large" className="pull-right">
@@ -55,7 +56,7 @@ export class SurveyForm extends Component {
         );
     }
 }
-
+//TODO: fix validation for emails
 function validate(values) {
     const errors = {};
     errors.recipients = validateEmails(values.recipients || '');

@@ -13,7 +13,7 @@ const RecipientField = ({ input, isOpen, recipients, handleToggle, meta: { touch
       </Row>
       <Row>
         <Col sm={ 12 } md={ 12 } lg={ 12 } >
-          <input {...input} className="field-input" onClick={handleToggle} onBlur={handleToggle}/>
+          <input {...input} className="field-input" onClick={handleToggle} />
           { isOpen &&
             <RecipientList recipients={recipients} />
           }
