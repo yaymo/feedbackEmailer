@@ -12,10 +12,8 @@ const RecipientList = ({ recipients }) => {
   )
 }
 RecipientList.propTypes = {
-  recipients: PropTypes.arrayOf(
-    {
-      email: PropTypes.string
-    }
-  )
+  recipients: PropTypes.arrayOf(PropTypes.shape({
+    email: PropTypes.string
+  }))
 }
 export default RecipientList;
