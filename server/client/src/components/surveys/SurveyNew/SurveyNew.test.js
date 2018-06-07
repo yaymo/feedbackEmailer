@@ -20,16 +20,4 @@ describe('<SurveyNew />', () => {
   //   console.log(wrapper.debug());
   //   expect(wrapper.find(SurveyForm).length).toBe(1);
   // });
-
-  // placeholder tests until I figure about redux issue above
-  it('renders one child component', () => {
-    const wrapper = shallow(<SurveyNew />);
-    expect(wrapper.children().length).toBe(1);
-  });
-
-  it('still renders one child after toggling state', () => {
-    const wrapper = shallow(<SurveyNew />);
-    wrapper.setState({ showFormReview: true });
-    expect(wrapper.children().length).toBe(1);
-  });
 });
