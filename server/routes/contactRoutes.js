@@ -6,7 +6,7 @@ const Contact = mongoose.model('contact');
 module.exports = app => {
 
     app.get('/api/contacts', async (req, res) => {
-        const contactss = await Contact.find({ _user: req.user.id });
+        const contacts = await Contact.find({ _user: req.user.id });
 
         res.send(contacts);
     });

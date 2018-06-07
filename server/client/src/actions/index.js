@@ -72,7 +72,7 @@ export const filterSurveys = text => dispatch => {
 
 export const fetchContacts = () => async dispatch => {
     dispatch({ type: REQUEST_FETCH_CONTACTS });
-    const res = await axios.get('/api/recipients');
+    const res = await axios.get('/api/contacts');
     try {
         dispatch({ type: FETCH_CONTACTS_SUCCESS, payload: res.data });
     }
@@ -82,7 +82,7 @@ export const fetchContacts = () => async dispatch => {
 }
 
 export const submitContact = values => async dispatch => {
-    const res = await axios.post('/api/recipients', values);
+    const res = await axios.post('/api/contacts', values);
     try {
         dispatch({ type: SUBMIT_CONTACT_SUCCESS, payload: res.data });
     }
