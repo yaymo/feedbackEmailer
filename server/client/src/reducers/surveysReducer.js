@@ -1,6 +1,7 @@
 import { REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_ERROR, FETCH_SURVEYS_SUCCESS,
   REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR,
-  REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR, FILTER_SURVEYS } from '../actions/types';
+  REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR, FILTER_SURVEYS,
+  SORT_SURVEYS_DESC, SORT_SURVEYS_ASC } from '../actions/types';
 
 const initialState = {
   surveys: [],
@@ -82,6 +83,17 @@ export default function(state = initialState, action) {
         surveys: state.surveys.filter(survey => {
           return survey.title.toLowerCase().includes(state.filterText)}),
         filterText: action.text
+      }
+
+    case SORT_SURVEYS_DESC:
+      return {
+        ...state,
+        surveys: action.payload
+      }
+    case SORT_SURVEYS_ASC:
+      return {
+        ...state,
+        surveys: action.payload
       }
 
     default:

@@ -17,3 +17,5 @@ export const FETCH_CONTACTS_SUCCESS = 'fetch_contacts_success';
 export const FETCH_CONTACTS_ERROR = 'fetch_contacts_error';
 export const SUBMIT_CONTACT_SUCCESS = 'submit_contact_success';
 export const SUBMIT_CONTACT_ERROR = 'submit_contact_error';
+export const SORT_SURVEYS_DESC = 'sort_surveys_desc';
+export const SORT_SURVEYS_ASC = 'sort_surveys_asc';

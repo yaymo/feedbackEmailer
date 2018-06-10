@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import Card from '../../Card/';
 import LoadingIndicator from '../../Loading/';
-import { deleteSurvey } from '../../../actions/';
+import { deleteSurvey, sortSurveysDesc, sortSurveysAsc } from '../../../actions/';
 
 
 export class SurveyList extends React.Component  {
@@ -20,7 +20,9 @@ export class SurveyList extends React.Component  {
       })),
     deleteSurvey: PropTypes.func,
     isLoading: PropTypes.bool,
-    handleChange: PropTypes.func
+    handleChange: PropTypes.func,
+    sortSurveysDesc: PropTypes.func,
+    sortSurveysAsc: PropTypes.func
   }
 
   static defaultProps = {
@@ -34,7 +36,17 @@ export class SurveyList extends React.Component  {
     },
     deleteSurvey: () => {},
     isLoading: false,
-    handleChange: () => {}
+    handleChange: () => {},
+    sortSurveysDesc: () => {},
+    sortSurveyAsc: () => {}
+  }
+
+  handleClick = () => {
+    this.props.sortSurveysAsc(this.props.surveys)
+  }
+
+  handleSortClick = () => {
+    this.props.sortSurveysDesc(this.props.surveys);
   }
 
   render() {
@@ -51,8 +63,11 @@ export class SurveyList extends React.Component  {
         <input onChange={ (e) => this.props.handleChange(e.target.value) }
           placeholder="Enter Survey Title"
           style={{width: '250px', height: '50px', marginTop: '30px', marginRight: '30px'}}/>
-        <Button bsStyle="primary" bsSize="large" onClick={ () => console.log('clicking')}>
+        <Button bsStyle="primary" bsSize="large" onClick={ this.handleClick }>
           Oldest To Newest
+        </Button>
+        <Button bsStyle="default" bsSize="large" onClick={ this.handleSortClick }>
+          Newest To Oldest
         </Button>
         { this.props.isLoading && <LoadingIndicator /> }
         <div className="row">
@@ -62,4 +77,4 @@ export class SurveyList extends React.Component  {
     );
   }
 }
-export default connect(null, { deleteSurvey })(SurveyList);
+export default connect(null, { deleteSurvey, sortSurveysDesc, sortSurveysAsc })(SurveyList);

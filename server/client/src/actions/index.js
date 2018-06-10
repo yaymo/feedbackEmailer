@@ -1,10 +1,11 @@
 import axios from 'axios';
+import moment from 'moment';
 import { FETCH_USER, REQUEST_FETCH_SURVEYS, FETCH_SURVEYS_SUCCESS, FETCH_SURVEYS_ERROR,
     REQUEST_DELETE_SURVEY, DELETE_SURVEY_SUCCESS, DELETE_SURVEY_ERROR,
     REQUEST_SUBMIT_SURVEY, SUBMIT_SURVEY_SUCCESS, SUBMIT_SURVEY_ERROR,
     UPDATE_SURVEY_SUCCESS, UPDATE_SURVEY_ERROR, FILTER_SURVEYS,
     REQUEST_FETCH_CONTACTS, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR,
-    SUBMIT_CONTACT_SUCCESS, SUBMIT_CONTACT_ERROR } from './types';
+    SUBMIT_CONTACT_SUCCESS, SUBMIT_CONTACT_ERROR, SORT_SURVEYS_DESC, SORT_SURVEYS_ASC } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/currentUser')
@@ -89,4 +90,20 @@ export const submitContact = values => async dispatch => {
     catch(err) {
         dispatch({ type: SUBMIT_CONTACT_ERROR, error: err });
     }
+}
+
+export const sortSurveysAsc = surveys => dispatch => {
+    const sortedSurveys = surveys.sort((surveyA, surveyB) => {
+        return moment(surveyA.dateSent).format('x') - moment(surveyB.dateSent).format('x');
+    });
+
+    dispatch({ type: SORT_SURVEYS_DESC, payload: sortedSurveys });
+}
+
+export const sortSurveysDesc = surveys => dispatch => {
+    const sortedSurveys = surveys.sort((surveyA, surveyB) => {
+        return moment(surveyB.dateSent).format('x') - moment(surveyA.dateSent).format('x');
+    });
+
+    dispatch({ type: SORT_SURVEYS_ASC, payload: sortedSurveys });
 }
