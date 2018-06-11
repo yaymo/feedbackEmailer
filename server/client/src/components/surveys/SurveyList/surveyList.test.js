@@ -3,6 +3,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { SurveyList }  from './';
 import LoadingIndicator from '../../Loading';
+import SurveyFiltersList from '../SurveyFiltersList';
 
 configure({ adapter: new Adapter() });
 
@@ -33,11 +34,8 @@ describe('<SurveyList />', () => {
     expect(wrapper.find(LoadingIndicator)).toHaveLength(1);
   });
 
-  it('calls handleChange with target value', () => {
-    const handleChange = jest.fn();
-    const inputValue = 'my value';
-    const wrapper = shallow(<SurveyList surveys={[ createTestProps() ]} handleChange={handleChange} />);
-    wrapper.find('input').simulate('change', { target: { value: inputValue } });
-    expect(handleChange).toHaveBeenCalledWith(inputValue);
+  it('renders the filtersList', () => {
+    const wrapper = shallow(<SurveyList surveys={[ createTestProps() ]}/>);
+    expect(wrapper.find(SurveyFiltersList).length).toEqual(1);
   });
 });

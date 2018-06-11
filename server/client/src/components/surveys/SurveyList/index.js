@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
 import Card from '../../Card/';
 import LoadingIndicator from '../../Loading/';
+import SurveyFiltersList from '../SurveyFiltersList';
 import { deleteSurvey, sortSurveysDesc, sortSurveysAsc } from '../../../actions/';
 
 
@@ -41,11 +41,11 @@ export class SurveyList extends React.Component  {
     sortSurveyAsc: () => {}
   }
 
-  handleClick = () => {
+  handleSortAsc = () => {
     this.props.sortSurveysAsc(this.props.surveys)
   }
 
-  handleSortClick = () => {
+  handleSortDesc = () => {
     this.props.sortSurveysDesc(this.props.surveys);
   }
 
@@ -60,15 +60,9 @@ export class SurveyList extends React.Component  {
     });
     return (
       <div className="container">
-        <input onChange={ (e) => this.props.handleChange(e.target.value) }
-          placeholder="Enter Survey Title"
-          style={{width: '250px', height: '50px', marginTop: '30px', marginRight: '30px'}}/>
-        <Button bsStyle="primary" bsSize="large" onClick={ this.handleClick }>
-          Oldest To Newest
-        </Button>
-        <Button bsStyle="default" bsSize="large" onClick={ this.handleSortClick }>
-          Newest To Oldest
-        </Button>
+        <SurveyFiltersList handleChange={this.props.handleChange}
+          handleSortAsc={ this.handleSortAsc }
+          handleSortDesc={ this.handleSortDesc } />
         { this.props.isLoading && <LoadingIndicator /> }
         <div className="row">
           {surveys}
