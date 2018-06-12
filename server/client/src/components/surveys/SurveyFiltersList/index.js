@@ -1,18 +1,18 @@
 import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import './surveyFiltersList.css';
 
 const SurveyFiltersList = ({ handleChange, handleSortAsc, handleSortDesc }) => {
   return (
     <Fragment>
       <input onChange={(e) => handleChange(e.target.value)}
-        placeholder="Enter survey title"
-        style={{ width: '250px', height: '50px', marginTop: '30px', marginRight: '30px'}}/>
-      <Button bsStyle="primary" bsSize="large" onClick={handleSortAsc} id="btn-asc">
+        placeholder="Enter survey title" id="filterInput" />
+      <Button bsStyle="primary" bsSize="large" onClick={handleSortAsc} className="sort-btn" id="btn-asc">
         Oldest To Newest
       </Button>
-      <Button bsSize="large" onClick={handleSortDesc} id="btn-desc">
-      Newest To Oldest
+      <Button bsStyle="info" bsSize="large" onClick={handleSortDesc} className="sort-btn" id="btn-desc">
+        Newest To Oldest
       </Button>
     </Fragment>
   )
