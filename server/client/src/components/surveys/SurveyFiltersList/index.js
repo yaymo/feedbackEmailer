@@ -8,10 +8,10 @@ const SurveyFiltersList = ({ handleChange, handleSortAsc, handleSortDesc }) => {
       <input onChange={(e) => handleChange(e.target.value)}
         placeholder="Enter survey title"
         style={{ width: '250px', height: '50px', marginTop: '30px', marginRight: '30px'}}/>
-      <Button bsStyle="primary" bsSize="large" onClick={handleSortAsc}>
+      <Button bsStyle="primary" bsSize="large" onClick={handleSortAsc} id="btn-asc">
         Oldest To Newest
       </Button>
-      <Button bsSize="large" onClick={handleSortDesc}>
+      <Button bsSize="large" onClick={handleSortDesc} id="btn-desc">
       Newest To Oldest
       </Button>
     </Fragment>
