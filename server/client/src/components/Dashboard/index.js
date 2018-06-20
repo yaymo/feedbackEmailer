@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -40,7 +40,7 @@ export class Dashboard extends Component {
     const { isLoading, auth } = this.props;
     const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase() || ''));
     return  (
-      <div>
+      <Fragment>
         <SurveyList surveys={surveys} isLoading={isLoading}
           handleChange={filterText => this.handleChange( filterText )} />
         <div className="fixed-action-btn">
@@ -54,7 +54,7 @@ export class Dashboard extends Component {
             </button>
           }
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
