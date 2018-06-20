@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Card from '../../Card/';
 import LoadingIndicator from '../../Loading/';
 import SurveyFiltersList from '../SurveyFiltersList';
+import EmptyList from '../../EmptyList';
 import { deleteSurvey, sortSurveysDesc, sortSurveysAsc } from '../../../actions/';
 
 
@@ -60,12 +61,12 @@ export class SurveyList extends React.Component  {
     });
     return (
       <div className="container">
+        { this.props.isLoading && <LoadingIndicator /> }
         <SurveyFiltersList handleChange={this.props.handleChange}
           handleSortAsc={ this.handleSortAsc }
           handleSortDesc={ this.handleSortDesc } />
-        { this.props.isLoading && <LoadingIndicator /> }
         <div className="row">
-          {surveys}
+          {surveys.length ? surveys : <EmptyList />}
         </div>
       </div>
     );
