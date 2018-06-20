@@ -1,29 +1,17 @@
 #filterInput {
-  width: 225px;
+  width: 95%;
   height: 50px;
-  margin-top: 30px;
-  margin-right: 20px;
-  padding-left: 15px;
+  margin: 10px auto;
 }
 
-#btn-asc {
-  margin-right: 10px;
+.sort-btn {
+  height: 50px;
+  margin: 10px auto;
+  width: 90%;
 }
 
-#btn-desc {
-  margin-left: 10px;
-}
-
-@media only screen and (max-width: 767px) {
-  .sort-btn {
-    display: block;
-    margin: 10px 0;
-    width: 275px;
-  }
-  #btn-desc {
-    margin: 0;
-  }
-  #filterInput {
-    width: 275px;
+@media only screen and (max-width: 991px) {
+  .sort-btn, #filterInput {
+    width: 100%
   }
 }
