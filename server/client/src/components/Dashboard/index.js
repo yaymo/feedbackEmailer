@@ -38,7 +38,7 @@ export class Dashboard extends Component {
 
   render() {
     const { isLoading, auth } = this.props;
-    const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase() || ''));
+    const surveys = this.props.surveys.filter(survey => survey.title.includes(this.state.filterText.trim().toLowerCase()));
     return  (
       <Fragment>
         <SurveyList surveys={surveys} isLoading={isLoading}

@@ -66,7 +66,7 @@ export class SurveyList extends React.Component  {
           handleSortAsc={ this.handleSortAsc }
           handleSortDesc={ this.handleSortDesc } />
         <div className="row">
-          {surveys.length ? surveys : <EmptyList />}
+          {surveys ? surveys : <EmptyList />}
         </div>
       </div>
     );
