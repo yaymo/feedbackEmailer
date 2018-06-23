@@ -1,11 +1,21 @@
 import React from 'react';
 
 const Landing = () => {
-    return (
-        <div style={{textAlign: 'center', width: '60%', marginLeft: 'auto', marginRight: 'auto'}}>
-            <h1>Get feedback fast and always be in the loop with Loop.io</h1>
-            Test test test
-        </div>
-    )
+  const containerStyle = {
+    textAlign: 'center',
+    width: '100%',
+    height: '100%',
+    margin: '0px auto 20px auto',
+    background: 'white',
+    paddingTop: '40px'
+  }
+  return (
+    <React.Fragment>
+      <div style={containerStyle}>
+        <h2 style={{marginBottom: '50px', fontFamily: 'Roboto', fontSize: '40px', color: '#555'}}>Welcome to Loop.io!</h2>
+        <p style={{fontFamily: '25px', marginTop: '50px'}}>The app that always keeps you up to date with product feedback</p>
+      </div>
+    </React.Fragment>
+  )
 }
 export default Landing;

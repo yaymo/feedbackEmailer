@@ -24,7 +24,7 @@ export class Header extends Component {
                 return;
             case false:
                 return (
-                    <li key={ 1 }><a className="nav-link" href="/auth/google" id="google">Login</a></li>
+                    <li key={ 1 }><a className="nav-link" href="/auth/google" id="google">Sign up / Login</a></li>
                 );
             default:
                 return [
