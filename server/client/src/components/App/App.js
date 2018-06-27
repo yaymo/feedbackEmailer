@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Header from '../Header';
 import * as actions from '../../actions';
 import Landing from '../Landing';
+import Features from '../Features';
 import Dashboard from '../Dashboard';
 import SurveyNew from '../surveys/SurveyNew/';
 import Credits from '../Credits/'
@@ -31,6 +32,7 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path='/' component={Landing} />
+            <Route exact path='/features' component={Features} />
             <div className="container">
               <Route exact path='/surveys' component={Dashboard} />
               <Route path='/surveys/new' component={SurveyNew} />
