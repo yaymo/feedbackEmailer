@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import axios from 'axios';
 import './card.css'
 import { updateSurveyTitle } from '../../actions';
 
@@ -15,7 +14,8 @@ class Card extends Component {
         no: PropTypes.number.isRequired,
         dateSent: PropTypes.string.isRequired,
         onDelete: PropTypes.func.isRequired,
-        _id: PropTypes.string.isRequired
+        _id: PropTypes.string.isRequired,
+        updateSurveyTitle: PropTypes.func.isRequired
     }
 
     static defaultProps = {
@@ -25,7 +25,8 @@ class Card extends Component {
         no: 0,
         dateSent: '',
         onDelete: () => {},
-        _id: ''
+        _id: '',
+        updateSurveyTitle: () => {}
     }
     constructor(props) {
         super(props);
