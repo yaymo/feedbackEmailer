@@ -1,11 +1,15 @@
 .survey-form {
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    margin: 40px auto;
     width: 75%;
-    padding-top: 25px;
+    padding: 40px 30px;
 }
 .pull-right {
     float: right !important;
+}
+
+.btn-lg {
+    margin-top: 25px;
 }

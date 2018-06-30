@@ -1,8 +1,10 @@
 .survey-review {
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 25px;
+    margin: 50px auto;
+    padding: 20px 30px;
     width: 80%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
 .header {
@@ -16,10 +18,10 @@
 }
 .form-value {
     font-size: 20px;
-    font-family: 'Helvetica';
+    font-family: 'Roboto';
     margin-left: 15px;
 }
 .form-label {
     font-size: 25px;
-    font-family: 'Arial';
+    font-family: 'Roboto';
 }
