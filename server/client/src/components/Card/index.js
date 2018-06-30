@@ -5,7 +5,7 @@ import moment from 'moment';
 import './card.css'
 import { updateSurveyTitle } from '../../actions';
 
-class Card extends Component {
+export class Card extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
