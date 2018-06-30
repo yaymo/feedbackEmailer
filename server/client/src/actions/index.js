@@ -42,8 +42,8 @@ export const fetchSurveys = () => async dispatch => {
     }
 }
 
-export const updateSurvey = (surveyId, values) => async dispatch => {
-    const res = await axios.put(`/api/surveys/:${surveyId}`, values);
+export const updateSurveyTitle = (surveyId, surveyTitle) => async dispatch => {
+    const res = await axios.put(`/api/surveys/${surveyId}`, { title: surveyTitle });
     try {
         dispatch({ type: UPDATE_SURVEY_SUCCESS, payload: res.data })
     }

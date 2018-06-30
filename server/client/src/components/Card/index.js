@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import axios from 'axios';
 import './card.css'
+import { updateSurveyTitle } from '../../actions';
 
 class Card extends Component {
 
@@ -51,8 +53,8 @@ class Card extends Component {
         }
     }
 
-    handleBlur = async (id, text) => {
-        await axios.put(`/api/surveys/${id}`, { title: text });
+    handleBlur = (id, text) => {
+        this.props.updateSurveyTitle(id, text);
     }
 
     handleChange = (e) => {
@@ -114,4 +116,4 @@ class Card extends Component {
             )
     }
 }
-export default Card;
+export default connect(null, {updateSurveyTitle})(Card);
