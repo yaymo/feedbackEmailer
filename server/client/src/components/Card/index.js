@@ -27,11 +27,13 @@ class Card extends Component {
     }
     constructor(props) {
         super(props);
-        this.state = {
-            activeTab: '1',
-            isEditing: false,
-            text: this.props.title
-        };
+        this.state = this.initialState;
+    }
+
+    initialState = {
+        activeTab: '1',
+        isEditing: false,
+        text: this.props.title
     }
 
     tabClickHandler = ( evt ) => {
@@ -39,7 +41,11 @@ class Card extends Component {
     }
 
     handleToggle = () => {
-        this.setState({ isEditing: !this.state.isEditing });
+        this.setState(({ isEditing}) => {
+            return {
+                isEditing: !isEditing
+            }
+        })
         if(this.state.isEditing) {
             this.handleBlur(this.props._id, this.state.text);
         }
