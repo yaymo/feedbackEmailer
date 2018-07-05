@@ -92,7 +92,7 @@ export class Card extends Component {
             }
             { activeTab === "1" &&
               <h5 className="card-text">
-                Loops
+                Body
                 <div className="survey-loops">{ this.props.body }</div>
               </h5>
             }
